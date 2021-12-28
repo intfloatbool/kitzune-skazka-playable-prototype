@@ -376,7 +376,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2335859189693696607}
-  - component: {fileID: 2335859189693696592}
+  - component: {fileID: 8875040502192416974}
+  - component: {fileID: 6099437501529243817}
   m_Layer: 0
   m_Name: BossTree
   m_TagString: Untagged
@@ -399,7 +400,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2335859189693696592
+--- !u!114 &8875040502192416974
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -411,11 +412,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 667b736529ad80440a8be6c5bc7ccff4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _stepMover: {fileID: 6099437501529243817}
+--- !u!114 &6099437501529243817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2335859189693696606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0433378dcaab99f4b90fe61f6009158b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   _startMoveIndex: 0
   _moveDataCollection:
   - Position: {x: 0, y: 5, z: 0}
     Speed: 5
-    Delay: 2
+    Delay: 1.5
   - Position: {x: 0, y: -4, z: 0}
     Speed: 5
     Delay: 2
