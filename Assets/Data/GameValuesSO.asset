@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: GameValuesSO
   m_EditorClassIdentifier: 
   _integerValues: []
-  _floatValues: []
+  _floatValues:
+  - _nameKey: PLAYER_MOVE_SPEED
+    _value: 8
   m_boolValues: []
   m_colorValues: []
