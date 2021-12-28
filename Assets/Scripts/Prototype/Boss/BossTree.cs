@@ -7,7 +7,7 @@ namespace Prototype.Boss
         [SerializeField] private TargetStepMover _stepMover;
         private void Start()
         {
-            _stepMover.Reset();
+            _stepMover.ResetMover();
             _stepMover.SetActiveMove(true);
         }
     }

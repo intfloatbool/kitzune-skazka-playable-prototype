@@ -1,3 +1,5 @@
+using System;
+using System.Linq;
 using UnityEngine;
 
 namespace Prototype
@@ -5,7 +7,7 @@ namespace Prototype
     public class TargetStepMover : MonoBehaviour
     {
         [System.Serializable]
-        private struct MoveData
+        public struct MoveData
         {
             public Vector3 Position;
             public float Speed;
@@ -13,7 +15,7 @@ namespace Prototype
         }
         [SerializeField] private int _startMoveIndex;
         [SerializeField] private MoveData[] _moveDataCollection;
-        
+
         private MoveData _currentMoveData;
         private int _currentMoveDataIndex;
 
@@ -21,12 +23,19 @@ namespace Prototype
 
         private bool _isActive;
         
+        public void AddMoveData(MoveData moveData)
+        {
+            var currentCollection = _moveDataCollection.ToList();
+            currentCollection.Add(moveData);
+            _moveDataCollection = currentCollection.ToArray();
+        }
+        
         public void SetActiveMove(bool isActive)
         {
             _isActive = isActive;
         }
 
-        public void Reset()
+        public void ResetMover()
         {
             _currentMoveDataIndex = _startMoveIndex;
             SelectMoveData(); 
@@ -65,7 +74,9 @@ namespace Prototype
         {
             transform.position = Vector3.MoveTowards(transform.position, _currentMoveData.Position, _currentMoveData.Speed * Time.deltaTime);
 
-            if (transform.position.Equals(_currentMoveData.Position))
+            float minDistance = 0.01f;
+
+            if (transform.position.Equals(_currentMoveData.Position) || Vector3.Distance(transform.position, _currentMoveData.Position) <= minDistance)
             {
                 _currentMoveDataTimer += Time.deltaTime;
                 if (_currentMoveDataTimer > _currentMoveData.Delay)
