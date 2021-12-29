@@ -23,6 +23,8 @@ namespace Prototype
 
         private bool _isActive;
         
+        public Action OnLoopDoneCallback { get; set; }
+        
         public void AddMoveData(MoveData moveData)
         {
             var currentCollection = _moveDataCollection.ToList();
@@ -53,6 +55,7 @@ namespace Prototype
             if (_currentMoveDataIndex > _moveDataCollection.Length - 1)
             {
                 _currentMoveDataIndex = 0;
+                OnLoopDoneCallback?.Invoke();
             }
         }
         
