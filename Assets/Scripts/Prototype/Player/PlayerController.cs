@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Prototype.Player
 {
-    public class PlayerController : MonoBehaviour
+    public class PlayerController : ActivateableBase
     {
         [SerializeField] private InputController _inputController;
         private float _moveSpeed;
@@ -31,6 +31,11 @@ namespace Prototype.Player
 
         private void Update()
         {
+            if (!_isActive)
+            {
+                return;
+            }
+            
             if (_inputController)
             {
                 var moveDirection = new Vector3(

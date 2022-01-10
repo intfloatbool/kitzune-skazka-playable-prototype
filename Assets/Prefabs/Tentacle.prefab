@@ -47,7 +47,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _activateTrigger: {fileID: 2473008851585946019}
-  _killTrigger: {fileID: 2473008852351725607}
   _targetStepMover: {fileID: 2473008851003068125}
   _tentacleBodyTransform: {fileID: 2473008851003068126}
   _targetTransform: {fileID: 0}
@@ -878,6 +877,7 @@ GameObject:
   - component: {fileID: 2473008852351725601}
   - component: {fileID: 2473008852351725600}
   - component: {fileID: 2473008852351725607}
+  - component: {fileID: 2008007407074726078}
   m_Layer: 0
   m_Name: KillTrigger
   m_TagString: Untagged
@@ -924,21 +924,25 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.24209279, y: 5.0350623}
-      - {x: 1.9776419, y: 7.034759}
-      - {x: 1.4909155, y: 8.137957}
-      - {x: 0.72580814, y: 9.5119095}
-      - {x: 1.2318506, y: 10.626108}
+    - - {x: 0.15343693, y: 4.144669}
+      - {x: -0.2865755, y: 5.5138383}
+      - {x: 1.167299, y: 7.403706}
+      - {x: -0.17734545, y: 9.88016}
+      - {x: 0.14035386, y: 10.657335}
+      - {x: 0.9311843, y: 12.112115}
       - {x: -0.34451127, y: 11.422629}
-      - {x: -1.6722596, y: 9.388972}
-      - {x: -0.41549438, y: 7.2998505}
-      - {x: -0.82374394, y: 6.8992033}
-      - {x: -1.7502954, y: 5.3270226}
-      - {x: -1.752084, y: 5.130701}
-      - {x: -0.9871219, y: 2.8335924}
-      - {x: -0.5877852, y: -0.80901706}
-      - {x: 0.58778536, y: -0.80901694}
-      - {x: 1.2275575, y: 2.8816798}
+      - {x: -1.1324389, y: 10.403664}
+      - {x: 0.17229003, y: 7.5413923}
+      - {x: -0.66108763, y: 6.7246103}
+      - {x: -1.366859, y: 5.7394385}
+      - {x: -1.4941094, y: 5.3007975}
+      - {x: -0.52234536, y: 2.9342773}
+      - {x: -0.44566372, y: 0.5960753}
+      - {x: -0.44950783, y: 0.033587426}
+      - {x: -0.1654889, y: -0.5640721}
+      - {x: 0.19554925, y: -0.53295773}
+      - {x: 0.45464057, y: 0.17395665}
+      - {x: 0.47786415, y: 2.8854895}
 --- !u!114 &2473008852351725607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -949,5 +953,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a703cdd0eb850024b968c20bcce9f102, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2008007407074726078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2473008852351725602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7661e5a5438f587409200578506de172, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

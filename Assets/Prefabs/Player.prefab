@@ -424,6 +424,7 @@ GameObject:
   - component: {fileID: 1722218699690668625}
   - component: {fileID: 1722218699690668630}
   - component: {fileID: 1722218699690668631}
+  - component: {fileID: 7378017328685681537}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -458,6 +459,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 177f18162e431354eaf831779e35fcbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isActive: 0
   _inputController: {fileID: 0}
 --- !u!50 &1722218699690668624
 Rigidbody2D:
@@ -530,6 +532,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c95af60a3868014bbcdda06291eb061, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _onDead:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7378017328685681537}
+        m_TargetAssemblyTypeName: Prototype.ActivateablesController, Assembly-CSharp
+        m_MethodName: SetActiveToAll
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7378017328685681537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1722218699690668637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 947a54d3bf6445059424dcafaa5d049c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _activateableCollection:
+  - {fileID: 1722218699690668627}
 --- !u!1 &1722218699780140742
 GameObject:
   m_ObjectHideFlags: 0

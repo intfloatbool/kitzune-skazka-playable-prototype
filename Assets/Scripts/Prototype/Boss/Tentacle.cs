@@ -8,7 +8,6 @@ namespace Prototype.Boss
     public class Tentacle : MonoBehaviour
     {
         [SerializeField] private TriggerCollider _activateTrigger;
-        [SerializeField] private TriggerCollider _killTrigger;
         [SerializeField] private TargetStepMover _targetStepMover;
 
         [SerializeField] private Transform _tentacleBodyTransform;
@@ -27,7 +26,6 @@ namespace Prototype.Boss
         private void Awake()
         {
             _activateTrigger.OnTriggerCallback = OnActivateTriggerEnter;
-            _killTrigger.OnTriggerCallback = OnKillTriggerEnter;
         }
 
         private void Start()
@@ -92,15 +90,5 @@ namespace Prototype.Boss
             OnTentacleDeactivated?.Invoke();
             yield return null;
         }
-        
-        private void OnKillTriggerEnter(TriggerableObject triggerable, Collider2D col)
-        {
-            var player = triggerable.GetComponent<FoxPlayer>();
-            if (player)
-            {
-                
-            }
-        }
-        
     }
 }
