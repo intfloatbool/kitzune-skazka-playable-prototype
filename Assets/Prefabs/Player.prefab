@@ -520,6 +520,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b581d0e13cb61b748bb7bb1ab02fe3f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _unitType: 1
 --- !u!114 &1722218699690668631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -561,6 +562,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _activateableCollection:
   - {fileID: 1722218699690668627}
+  _defaultActivationState: 1
 --- !u!1 &1722218699780140742
 GameObject:
   m_ObjectHideFlags: 0

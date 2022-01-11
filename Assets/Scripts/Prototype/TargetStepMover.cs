@@ -17,7 +17,12 @@ namespace Prototype
         [SerializeField] private MoveData[] _moveDataCollection;
 
         private MoveData _currentMoveData;
-        private int _currentMoveDataIndex;
+        public MoveData CurrentMoveData => _currentMoveData;
+        
+        [Space]
+        [Header("Runtime")]
+        [SerializeField] private int _currentMoveDataIndex;
+        public int CurrentMoveDataIndex => _currentMoveDataIndex;
 
         private float _currentMoveDataTimer;
 

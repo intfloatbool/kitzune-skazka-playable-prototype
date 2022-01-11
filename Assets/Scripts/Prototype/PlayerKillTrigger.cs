@@ -16,6 +16,8 @@ namespace Prototype
 
         private void OnTriggerCallback(TriggerableObject triggerable, Collider2D col2d)
         {
+            if (triggerable.UnitType != UnitType.FOX_PLAYER)
+                return;
             var player = triggerable.GetComponent<FoxPlayer>();
             if (player)
             {

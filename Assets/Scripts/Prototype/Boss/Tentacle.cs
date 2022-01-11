@@ -7,6 +7,14 @@ namespace Prototype.Boss
 {
     public class Tentacle : MonoBehaviour
     {
+        public enum TentacleState
+        {
+            NONE = 0,
+            PENDING = 1,
+            ATTACK = 2,
+            RETURN = 3
+        }
+        
         [SerializeField] private TriggerCollider _activateTrigger;
         [SerializeField] private TargetStepMover _targetStepMover;
 
@@ -22,6 +30,21 @@ namespace Prototype.Boss
 
         public event Action OnTentacleActivated;
         public event Action OnTentacleDeactivated;
+
+        [Space] 
+        [Header("Runtime")] 
+        [SerializeField] private TentacleState _currentState;
+
+        private Vector3 _basePosition;
+        
+        public TentacleState CurrentState
+        {
+            get => _currentState;
+            set
+            {
+                _currentState = value;
+            }
+        }
         
         private void Awake()
         {
@@ -30,10 +53,12 @@ namespace Prototype.Boss
 
         private void Start()
         {
-            var basePosition = _tentacleBodyTransform.position;
+            CurrentState = TentacleState.PENDING;
+            
+            _basePosition = _tentacleBodyTransform.position;
             _targetStepMover.AddMoveData(new TargetStepMover.MoveData()
             {
-               Position = basePosition,
+               Position = _basePosition,
                Delay = _delaysCollection[0],
                Speed = _speedsCollection[0]
             });
@@ -47,7 +72,7 @@ namespace Prototype.Boss
             
             _targetStepMover.AddMoveData(new TargetStepMover.MoveData()
             {
-                Position = basePosition,
+                Position = _basePosition,
                 Delay = _delaysCollection[0],
                 Speed = _speedsCollection[0]
             });
@@ -71,6 +96,8 @@ namespace Prototype.Boss
             OnTentacleActivated?.Invoke();
             yield return new WaitForSeconds(_activationDelay);
 
+            CurrentState = TentacleState.ATTACK;
+            
             bool isProcessDone = false;
             _targetStepMover.OnLoopDoneCallback = () =>
             {
@@ -79,8 +106,14 @@ namespace Prototype.Boss
             _targetStepMover.ResetMover();
             _targetStepMover.SetActiveMove(true);
 
+            yield return new WaitForEndOfFrame();
+            
             while (!isProcessDone)
             {
+                if (Vector3.Distance(_targetStepMover.transform.position, _targetTransform.position) <= 0.05f)
+                {
+                    CurrentState = TentacleState.RETURN;
+                }
                 yield return null;
             }
             
@@ -88,6 +121,8 @@ namespace Prototype.Boss
             
             _activationCoroutine = null;
             OnTentacleDeactivated?.Invoke();
+            
+            CurrentState = TentacleState.PENDING;
             yield return null;
         }
     }

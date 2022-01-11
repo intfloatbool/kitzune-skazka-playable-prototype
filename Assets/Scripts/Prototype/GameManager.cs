@@ -51,12 +51,45 @@ namespace Prototype
             SetState(_startGameState);
         }
 
+        private void Start()
+        {
+            GameHelper.SetTimeScale(1f);
+        }
+
+        public void DoGameAction(GameAction gameAction)
+        {
+            switch (_currentGameState)
+            {
+                case GameState.GAMEPLAY:
+                {
+                    if (gameAction == GameAction.TO_WIN)
+                    {
+                        SetState(GameState.WIN);
+                    }
+                    else if (gameAction == GameAction.TO_LOSE)
+                    {
+                        SetState(GameState.LOSE);
+                    }
+                    break;
+                }
+                case GameState.LOSE:
+                {
+                    break;
+                }
+                case GameState.WIN:
+                {
+                    break;
+                }
+            }
+        }
+
         public void SetState(GameState state)
         {
             if (state != _currentGameState)
             {
                 _currentGameState = state;
                 OnGameStateChanged?.Invoke(state);
+                Debug.Log("GameState changed: " + state);
             }
         }
 
@@ -77,16 +110,26 @@ namespace Prototype
 
         public void GameWin()
         {
-            SetState(GameState.WIN);
+            DoGameAction(GameAction.TO_WIN);
             OnGameWin?.Invoke();
             _onGameWinEv?.Invoke();
         }
 
         public void GameLose()
         {
-            SetState(GameState.LOSE);
+            DoGameAction(GameAction.TO_LOSE);
             OnGameLose?.Invoke();
             _onGameLoseEv?.Invoke();
+        }
+
+        public void PauseGame()
+        {
+            GameHelper.SetTimeScale(0f);
+        }
+
+        public void GameResume()
+        {
+            GameHelper.SetTimeScale(1f);
         }
 
         private void OnDestroy()
