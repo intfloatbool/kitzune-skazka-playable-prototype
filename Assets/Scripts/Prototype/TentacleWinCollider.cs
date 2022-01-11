@@ -16,17 +16,14 @@ namespace Prototype
 
         protected override void OnTriggered(TriggerableObject triggerableObject, Collider2D collider)
         {
-            var tentacle = triggerableObject.transform.root.GetComponentInChildren<Tentacle>();
+            var tentacle = triggerableObject.GetComponentInParent<Tentacle>();
             if (tentacle)
             {
-                if (tentacle.CurrentState == Tentacle.TentacleState.ATTACK)
+                _currentTentacles.Remove(tentacle);
+                Destroy(tentacle.gameObject);
+                if (_currentTentacles.Count <= 0)
                 {
-                    _currentTentacles.Remove(tentacle);
-                    Destroy(tentacle.gameObject);
-                    if (_currentTentacles.Count <= 0)
-                    {
-                        GameManager.Instance.GameWin();
-                    }
+                    GameManager.Instance.GameWin();
                 }
             }
             else
