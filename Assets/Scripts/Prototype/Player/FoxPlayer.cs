@@ -6,13 +6,16 @@ namespace Prototype.Player
 {
     public class FoxPlayer : MonoBehaviour
     {
-
+        
         public static event Action<FoxPlayer> OnPlayerCreated;
         
         public event Action OnDead;
         [SerializeField] private UnityEvent _onDead;
         private bool _isDead = false;
         public bool IsDead => _isDead;
+        
+        [Space(10f)]
+        [SerializeField] private bool _isPlayerImmortal;
 
         private void Start()
         {
@@ -21,6 +24,9 @@ namespace Prototype.Player
 
         public void Kill()
         {
+            if(_isPlayerImmortal)
+                return;
+            
             if(_isDead)
                 return;
             
