@@ -1301,6 +1301,10 @@ PrefabInstance:
       propertyPath: _inputController
       value: 
       objectReference: {fileID: 1174589257}
+    - target: {fileID: 1722218699690668631, guid: 0e8ba35409ac28f449f3a91362eef274, type: 3}
+      propertyPath: _isPlayerImmortal
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1722218699690668637, guid: 0e8ba35409ac28f449f3a91362eef274, type: 3}
       propertyPath: m_Name
       value: Player

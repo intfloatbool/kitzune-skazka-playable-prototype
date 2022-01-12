@@ -5,9 +5,12 @@ using UnityEngine;
 
 namespace Prototype
 {
-    public class TentacleWinCollider : GameWinCollider
+    public class TentacleThroatCollider : GameWinCollider
     {
         private LinkedList<Tentacle> _currentTentacles;
+        public IReadOnlyCollection<Tentacle> CurrentTentacles => _currentTentacles;
+        
+        public Action OnTentacleEatenCallback { get; set; }
 
         private void Start()
         {
@@ -21,10 +24,7 @@ namespace Prototype
             {
                 _currentTentacles.Remove(tentacle);
                 Destroy(tentacle.gameObject);
-                if (_currentTentacles.Count <= 0)
-                {
-                    GameManager.Instance.GameWin();
-                }
+                OnTentacleEatenCallback?.Invoke();
             }
             else
             {

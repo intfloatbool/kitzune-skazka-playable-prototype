@@ -52,7 +52,13 @@ namespace Prototype
         {
             IncreaseNextDataIndex();
             SelectMoveData();
-        } 
+        }
+
+        public void SetCurrentMoveDataIndex(int index)
+        {
+            _currentMoveDataIndex = index;
+            SelectMoveData();
+        }
 
         private void IncreaseNextDataIndex()
         {
