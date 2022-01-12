@@ -36,7 +36,7 @@ namespace Prototype.Boss
         [SerializeField] private TentacleState _currentState;
 
         private Vector3 _basePosition;
-        
+
         public TentacleState CurrentState
         {
             get => _currentState;
@@ -49,6 +49,12 @@ namespace Prototype.Boss
         private void Awake()
         {
             _activateTrigger.OnTriggerCallback = OnActivateTriggerEnter;
+        }
+
+        public void RestMove()
+        {
+            _currentState = TentacleState.RETURN;
+            _targetStepMover.SetCurrentMoveDataIndex(2);
         }
 
         private void Start()
@@ -110,13 +116,14 @@ namespace Prototype.Boss
             
             while (!isProcessDone)
             {
-                if (Vector3.Distance(_targetStepMover.transform.position, _targetTransform.position) <= 0.05f)
+                if (Vector3.Distance(_targetStepMover.transform.position, _targetTransform.position) <= 0.03f)
                 {
                     CurrentState = TentacleState.RETURN;
                 }
+
                 yield return null;
             }
-            
+
             _targetStepMover.SetActiveMove(false);
             
             _activationCoroutine = null;

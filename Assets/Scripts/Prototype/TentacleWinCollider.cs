@@ -21,6 +21,15 @@ namespace Prototype
             {
                 _currentTentacles.Remove(tentacle);
                 Destroy(tentacle.gameObject);
+
+                foreach (var existedTentacle in _currentTentacles)
+                {
+                    if (existedTentacle.CurrentState == Tentacle.TentacleState.ATTACK)
+                    {
+                        existedTentacle.RestMove();
+                    }
+                }
+                
                 if (_currentTentacles.Count <= 0)
                 {
                     GameManager.Instance.GameWin();
