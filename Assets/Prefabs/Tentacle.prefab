@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2473008850942984478}
   - component: {fileID: 2473008850942984477}
   - component: {fileID: 8484266907994847312}
+  - component: {fileID: 4028957116756473334}
   m_Layer: 0
   m_Name: Tentacle
   m_TagString: Untagged
@@ -47,7 +48,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _activateTrigger: {fileID: 2473008851585946019}
-  _targetStepMover: {fileID: 2473008851003068125}
+  _bodyStepMover: {fileID: 2473008851003068125}
+  _rootStepMover: {fileID: 4028957116756473334}
   _tentacleBodyTransform: {fileID: 2473008851003068126}
   _targetTransform: {fileID: 0}
   _activationDelay: 1
@@ -82,6 +84,21 @@ MonoBehaviour:
   _activateColor: {r: 0.83137256, g: 0.30287522, b: 0.027450997, a: 1}
   _deactivateColor: {r: 0.6901961, g: 0.83137256, b: 0.02745098, a: 1}
   _tentacle: {fileID: 2473008850942984477}
+--- !u!114 &4028957116756473334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2473008850942984479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0433378dcaab99f4b90fe61f6009158b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _startMoveIndex: 0
+  _moveDataCollection: []
+  _currentMoveDataIndex: 0
 --- !u!1 &2473008851003068127
 GameObject:
   m_ObjectHideFlags: 0

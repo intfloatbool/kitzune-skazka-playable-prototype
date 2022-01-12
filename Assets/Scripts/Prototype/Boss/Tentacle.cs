@@ -16,7 +16,9 @@ namespace Prototype.Boss
         }
         
         [SerializeField] private TriggerCollider _activateTrigger;
-        [SerializeField] private TargetStepMover _targetStepMover;
+        [SerializeField] private TargetStepMover _bodyStepMover;
+        [SerializeField] private TargetStepMover _rootStepMover;
+        public TargetStepMover RootStepMover => _rootStepMover;
 
         [SerializeField] private Transform _tentacleBodyTransform;
         [SerializeField] private Transform _targetTransform;
@@ -36,6 +38,9 @@ namespace Prototype.Boss
         [SerializeField] private TentacleState _currentState;
 
         private Vector3 _basePosition;
+        public Vector3 BasePosition => _basePosition;
+
+        public event Action<Tentacle> OnKill; 
 
         public TentacleState CurrentState
         {
@@ -54,7 +59,13 @@ namespace Prototype.Boss
         public void RestMove()
         {
             _currentState = TentacleState.RETURN;
-            _targetStepMover.SetCurrentMoveDataIndex(2);
+            _bodyStepMover.SetCurrentMoveDataIndex(2);
+        }
+
+        public void Kill()
+        {
+            OnKill?.Invoke(this);
+            Destroy(gameObject);
         }
 
         private void Start()
@@ -62,21 +73,21 @@ namespace Prototype.Boss
             CurrentState = TentacleState.PENDING;
             
             _basePosition = _tentacleBodyTransform.position;
-            _targetStepMover.AddMoveData(new TargetStepMover.MoveData()
+            _bodyStepMover.AddMoveData(new TargetStepMover.MoveData()
             {
                Position = _basePosition,
                Delay = _delaysCollection[0],
                Speed = _speedsCollection[0]
             });
             
-            _targetStepMover.AddMoveData(new TargetStepMover.MoveData()
+            _bodyStepMover.AddMoveData(new TargetStepMover.MoveData()
             {
                 Position = _targetTransform.position,
                 Delay = _delaysCollection[1],
                 Speed = _speedsCollection[1]
             });
             
-            _targetStepMover.AddMoveData(new TargetStepMover.MoveData()
+            _bodyStepMover.AddMoveData(new TargetStepMover.MoveData()
             {
                 Position = _basePosition,
                 Delay = _delaysCollection[0],
@@ -105,18 +116,18 @@ namespace Prototype.Boss
             CurrentState = TentacleState.ATTACK;
             
             bool isProcessDone = false;
-            _targetStepMover.OnLoopDoneCallback = () =>
+            _bodyStepMover.OnLoopDoneCallback = () =>
             {
                 isProcessDone = true;
             };
-            _targetStepMover.ResetMover();
-            _targetStepMover.SetActiveMove(true);
+            _bodyStepMover.ResetMover();
+            _bodyStepMover.SetActiveMove(true);
 
             yield return new WaitForEndOfFrame();
             
             while (!isProcessDone)
             {
-                if (Vector3.Distance(_targetStepMover.transform.position, _targetTransform.position) <= 0.03f)
+                if (Vector3.Distance(_bodyStepMover.transform.position, _targetTransform.position) <= 0.03f)
                 {
                     CurrentState = TentacleState.RETURN;
                 }
@@ -124,7 +135,7 @@ namespace Prototype.Boss
                 yield return null;
             }
 
-            _targetStepMover.SetActiveMove(false);
+            _bodyStepMover.SetActiveMove(false);
             
             _activationCoroutine = null;
             OnTentacleDeactivated?.Invoke();

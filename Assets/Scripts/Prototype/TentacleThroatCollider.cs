@@ -23,7 +23,7 @@ namespace Prototype
             if (tentacle)
             {
                 _currentTentacles.Remove(tentacle);
-                Destroy(tentacle.gameObject);
+                tentacle.Kill();
                 OnTentacleEatenCallback?.Invoke();
             }
             else
