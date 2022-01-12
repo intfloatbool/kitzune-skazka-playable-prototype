@@ -17,9 +17,9 @@ MonoBehaviour:
   - _nameKey: PLAYER_MOVE_SPEED
     _value: 8
   - _nameKey: PLAYER_BORDER_MIN_X
-    _value: -11
+    _value: -13.5
   - _nameKey: PLAYER_BORDER_MAX_X
-    _value: 11
+    _value: 13.5
   - _nameKey: PLAYER_BORDER_MIN_Y
     _value: -7.9
   - _nameKey: PLAYER_BORDER_MAX_Y
