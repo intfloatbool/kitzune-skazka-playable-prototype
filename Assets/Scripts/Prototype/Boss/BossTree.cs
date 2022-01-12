@@ -9,6 +9,7 @@ namespace Prototype.Boss
 
         [Space] 
         [SerializeField] private float _pauseMoveBetweenEatDelay = 1f;
+        [SerializeField] private bool _isTreeResetTargetPositionWhenEatTentacle = false;
         
         private void Start()
         {
@@ -25,8 +26,13 @@ namespace Prototype.Boss
 
         private void OnTentacleEatenCallback()
         {
+            if (_isTreeResetTargetPositionWhenEatTentacle)
+            {
+                _stepMover.SetCurrentMoveDataIndex(0);   
+            }
             _stepMover.SetActiveMove(false);
             Invoke(nameof(ResumeMove), _pauseMoveBetweenEatDelay);
+            
             
             foreach (var existedTentacle in _throatCollider.CurrentTentacles)
             {
