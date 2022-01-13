@@ -27,6 +27,13 @@ namespace Prototype
         private float _currentMoveDataTimer;
 
         private bool _isActive;
+
+        [SerializeField] private bool _isLocal;
+
+        public void SetIsLocal(bool isLocal)
+        {
+            _isLocal = isLocal;
+        }
         
         public Action OnLoopDoneCallback { get; set; }
         
@@ -35,6 +42,11 @@ namespace Prototype
             var currentCollection = _moveDataCollection.ToList();
             currentCollection.Add(moveData);
             _moveDataCollection = currentCollection.ToArray();
+        }
+
+        public void ClearMoveData()
+        {
+            _moveDataCollection = Array.Empty<MoveData>();
         }
         
         public void SetActiveMove(bool isActive)
@@ -86,16 +98,34 @@ namespace Prototype
 
         private void MoveLoop()
         {
-            transform.position = Vector3.MoveTowards(transform.position, _currentMoveData.Position, _currentMoveData.Speed * Time.deltaTime);
-
-            float minDistance = 0.01f;
-
-            if (transform.position.Equals(_currentMoveData.Position) || Vector3.Distance(transform.position, _currentMoveData.Position) <= minDistance)
+            if (!_isLocal)
             {
-                _currentMoveDataTimer += Time.deltaTime;
-                if (_currentMoveDataTimer > _currentMoveData.Delay)
+                transform.position = Vector3.MoveTowards(transform.position, _currentMoveData.Position, _currentMoveData.Speed * Time.deltaTime);
+
+                float minDistance = 0.01f;
+
+                if (transform.position.Equals(_currentMoveData.Position) || Vector3.Distance(transform.position, _currentMoveData.Position) <= minDistance)
                 {
-                    PickNextMoveData();
+                    _currentMoveDataTimer += Time.deltaTime;
+                    if (_currentMoveDataTimer > _currentMoveData.Delay)
+                    {
+                        PickNextMoveData();
+                    }
+                }
+            }
+            else
+            {
+                transform.localPosition = Vector3.MoveTowards(transform.localPosition, _currentMoveData.Position, _currentMoveData.Speed * Time.deltaTime);
+
+                float minDistance = 0.01f;
+
+                if (transform.localPosition.Equals(_currentMoveData.Position) || Vector3.Distance(transform.position, _currentMoveData.Position) <= minDistance)
+                {
+                    _currentMoveDataTimer += Time.deltaTime;
+                    if (_currentMoveDataTimer > _currentMoveData.Delay)
+                    {
+                        PickNextMoveData();
+                    }
                 }
             }
         }

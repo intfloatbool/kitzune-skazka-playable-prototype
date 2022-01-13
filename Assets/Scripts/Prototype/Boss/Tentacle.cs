@@ -37,9 +37,6 @@ namespace Prototype.Boss
         [Header("Runtime")] 
         [SerializeField] private TentacleState _currentState;
 
-        private Vector3 _basePosition;
-        public Vector3 BasePosition => _basePosition;
-
         public event Action<Tentacle> OnKill; 
 
         public TentacleState CurrentState
@@ -50,10 +47,14 @@ namespace Prototype.Boss
                 _currentState = value;
             }
         }
+
+        private Vector3 _bodyLocalPositionAtStart;
         
         private void Awake()
         {
             _activateTrigger.OnTriggerCallback = OnActivateTriggerEnter;
+
+            _bodyLocalPositionAtStart = _tentacleBodyTransform.localPosition;
         }
 
         public void RestMove()
@@ -71,25 +72,32 @@ namespace Prototype.Boss
         private void Start()
         {
             CurrentState = TentacleState.PENDING;
-            
-            _basePosition = _tentacleBodyTransform.position;
+            ResetMoveData();
+        }
+
+        public void ResetMoveData()
+        {
+            Vector3 baseBodyLocalPosition = _bodyLocalPositionAtStart;
+            _tentacleBodyTransform.localPosition = baseBodyLocalPosition;
+            _bodyStepMover.ClearMoveData();
+            _bodyStepMover.SetIsLocal(true);
             _bodyStepMover.AddMoveData(new TargetStepMover.MoveData()
             {
-               Position = _basePosition,
-               Delay = _delaysCollection[0],
-               Speed = _speedsCollection[0]
+                Position = baseBodyLocalPosition,
+                Delay = _delaysCollection[0],
+                Speed = _speedsCollection[0]
             });
             
             _bodyStepMover.AddMoveData(new TargetStepMover.MoveData()
             {
-                Position = _targetTransform.position,
+                Position = _tentacleBodyTransform.InverseTransformPoint(_targetTransform.position),
                 Delay = _delaysCollection[1],
                 Speed = _speedsCollection[1]
             });
             
             _bodyStepMover.AddMoveData(new TargetStepMover.MoveData()
             {
-                Position = _basePosition,
+                Position = baseBodyLocalPosition,
                 Delay = _delaysCollection[0],
                 Speed = _speedsCollection[0]
             });

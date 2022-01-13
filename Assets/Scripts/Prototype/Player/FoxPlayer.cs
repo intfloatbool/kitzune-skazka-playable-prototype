@@ -22,6 +22,11 @@ namespace Prototype.Player
             OnPlayerCreated?.Invoke(this);
         }
 
+        public void MakeImmortal()
+        {
+            _isPlayerImmortal = true;
+        }
+
         public void Kill()
         {
             if(_isPlayerImmortal)
