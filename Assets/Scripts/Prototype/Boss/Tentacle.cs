@@ -45,8 +45,11 @@ namespace Prototype.Boss
             set
             {
                 _currentState = value;
+                OnStateChangedCallback?.Invoke(this, _currentState);
             }
         }
+
+        public Action<Tentacle, TentacleState> OnStateChangedCallback { get; set; } 
 
         private Vector3 _bodyLocalPositionAtStart;
         

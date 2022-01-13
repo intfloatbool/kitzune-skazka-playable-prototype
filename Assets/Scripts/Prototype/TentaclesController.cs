@@ -33,12 +33,30 @@ namespace Prototype
             foreach (var tentacle in _tempTentacles)
             {
                 tentacle.OnKill += TentacleOnKill;
+                tentacle.OnStateChangedCallback = OnStateChangedCallback;
             }
 
             _tentacleAnchors = new List<Transform>(_tentacleAnchorsRoot.childCount);
             foreach (Transform child in _tentacleAnchorsRoot)
             {
                 _tentacleAnchors.Add(child);
+            }
+        }
+
+        private void OnStateChangedCallback(Tentacle tentacle, Tentacle.TentacleState tentacleState)
+        {
+            if (_isBehaviourChanged)
+            {
+                if (tentacleState == Tentacle.TentacleState.ATTACK)
+                {
+                    tentacle.ResetMoveData();
+                    tentacle.RootStepMover.SetActiveMove(false);
+                }
+
+                if (tentacleState == Tentacle.TentacleState.PENDING)
+                {
+                    tentacle.RootStepMover.SetActiveMove(true);
+                }
             }
         }
 
