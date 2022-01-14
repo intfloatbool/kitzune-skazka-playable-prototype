@@ -417,6 +417,11 @@ MonoBehaviour:
   _stepMover: {fileID: 6099437501529243817}
   _throatCollider: {fileID: 5069658595362733540}
   _pauseMoveBetweenEatDelay: 1
+  _isTreeResetTargetPositionWhenEatTentacle: 0
+  _behaviourData:
+    TentacleCountToSpeedUp: 1
+    SpeedUpBoostPerTentacle: 4
+    MaxSpeedUpAmount: 10
 --- !u!114 &6099437501529243817
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -438,6 +443,7 @@ MonoBehaviour:
     Speed: 5
     Delay: 1
   _currentMoveDataIndex: 0
+  _isLocal: 0
 --- !u!1 &2335859189968801691
 GameObject:
   m_ObjectHideFlags: 0

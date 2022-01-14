@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -7,7 +8,7 @@ namespace Prototype
     public class TargetStepMover : MonoBehaviour
     {
         [System.Serializable]
-        public struct MoveData
+        public class MoveData
         {
             public Vector3 Position;
             public float Speed;
@@ -15,6 +16,7 @@ namespace Prototype
         }
         [SerializeField] private int _startMoveIndex;
         [SerializeField] private MoveData[] _moveDataCollection;
+        public IReadOnlyCollection<MoveData> MoveDataCollection => _moveDataCollection;
 
         private MoveData _currentMoveData;
         public MoveData CurrentMoveData => _currentMoveData;

@@ -5,10 +5,16 @@ namespace Prototype.Player
     public class PlayerController : ActivateableBase
     {
         [SerializeField] private InputController _inputController;
+
+        [Range(0, 1f)]
+        [SerializeField] private float _moveThreshold = 0.5f;
+        
         private float _moveSpeed;
 
         private Vector3 _maxMoveBorder;
         private Vector3 _minMoveBorder;
+
+        private Vector3 _lastPosition;
 
         private void Start()
         {
@@ -25,7 +31,9 @@ namespace Prototype.Player
                 GameManager.ValuesProvider.GetFloat("PLAYER_BORDER_MIN_Y"),
                 0
             );
-            
+
+            _lastPosition = transform.position;
+
 
         }
 
@@ -38,36 +46,42 @@ namespace Prototype.Player
             
             if (_inputController)
             {
+
                 var moveDirection = new Vector3(
                     _inputController.Horizontal,
                     _inputController.Vertical,
                     0
                 );
-
-                var nextPosition = transform.position + moveDirection * _moveSpeed * Time.deltaTime;
                 
-                if (nextPosition.x > _maxMoveBorder.x)
-                {
-                    nextPosition.x = _maxMoveBorder.x;
-                }
 
-                if (nextPosition.x < _minMoveBorder.x)
+                if (Mathf.Abs(moveDirection.x) > Mathf.Epsilon || Mathf.Abs(moveDirection.y) > Mathf.Epsilon)
                 {
-                    nextPosition.x = _minMoveBorder.x;
-                } 
+                    var nextPosition = transform.position + moveDirection *  _moveSpeed * Time.deltaTime;
                 
-                if (nextPosition.y > _maxMoveBorder.y)
-                {
-                    nextPosition.y = _maxMoveBorder.y;
+                    if (nextPosition.x > _maxMoveBorder.x)
+                    {
+                        nextPosition.x = _maxMoveBorder.x;
+                    }
+
+                    if (nextPosition.x < _minMoveBorder.x)
+                    {
+                        nextPosition.x = _minMoveBorder.x;
+                    } 
+                
+                    if (nextPosition.y > _maxMoveBorder.y)
+                    {
+                        nextPosition.y = _maxMoveBorder.y;
+                    }
+
+                    if (nextPosition.y < _minMoveBorder.y)
+                    {
+                        nextPosition.y = _minMoveBorder.y;
+                    }
+
+
+                    transform.position = nextPosition;
+                    _lastPosition = nextPosition;
                 }
-
-                if (nextPosition.y < _minMoveBorder.y)
-                {
-                    nextPosition.y = _minMoveBorder.y;
-                }
-
-
-                transform.position = nextPosition;
             }
             else
             {
