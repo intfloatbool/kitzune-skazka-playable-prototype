@@ -50,7 +50,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  _countToChangeBehaviour: 3
+  _tentacleAnchorsRoot: {fileID: 0}
+  _countToChangeBehaviour: 2
   _delaysCollection:
   - 0.2
   - 0.2

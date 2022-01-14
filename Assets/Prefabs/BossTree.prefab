@@ -420,8 +420,8 @@ MonoBehaviour:
   _isTreeResetTargetPositionWhenEatTentacle: 0
   _behaviourData:
     TentacleCountToSpeedUp: 1
-    SpeedUpBoostPerTentacle: 4
-    MaxSpeedUpAmount: 10
+    SpeedUpBoostPerTentacle: 3
+    MaxSpeedUpAmount: 6
 --- !u!114 &6099437501529243817
 MonoBehaviour:
   m_ObjectHideFlags: 0
