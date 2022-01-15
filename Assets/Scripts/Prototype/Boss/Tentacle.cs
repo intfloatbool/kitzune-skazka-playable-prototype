@@ -30,8 +30,8 @@ namespace Prototype.Boss
 
         private Coroutine _activationCoroutine;
 
-        public event Action OnTentacleActivated;
-        public event Action OnTentacleDeactivated;
+        public event Action<Tentacle> OnTentacleActivated;
+        public event Action<Tentacle> OnTentacleDeactivated;
 
         [Space] 
         [Header("Runtime")] 
@@ -121,7 +121,7 @@ namespace Prototype.Boss
 
         private IEnumerator TentacleProcessCoroutine()
         {
-            OnTentacleActivated?.Invoke();
+            OnTentacleActivated?.Invoke(this);
             yield return new WaitForSeconds(_activationDelay);
 
             CurrentState = TentacleState.ATTACK;
@@ -149,7 +149,7 @@ namespace Prototype.Boss
             _bodyStepMover.SetActiveMove(false);
             
             _activationCoroutine = null;
-            OnTentacleDeactivated?.Invoke();
+            OnTentacleDeactivated?.Invoke(this);
             
             CurrentState = TentacleState.PENDING;
             yield return null;

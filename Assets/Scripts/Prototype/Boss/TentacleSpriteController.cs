@@ -26,7 +26,7 @@ namespace Prototype.Boss
             _tentacle.OnTentacleDeactivated -= OnTentacleDeactivated;
         }
         
-        private void OnTentacleActivated()
+        private void OnTentacleActivated(Tentacle tentacle)
         {
             ApplyForAllSprites((sprite) =>
             {
@@ -34,7 +34,7 @@ namespace Prototype.Boss
             });
         }
 
-        private void OnTentacleDeactivated()
+        private void OnTentacleDeactivated(Tentacle tentacle)
         {
             ApplyForAllSprites((sprite) =>
             {

@@ -18,7 +18,7 @@ namespace Prototype
         
         private bool _isBehaviourChanged = false;
         private LinkedList<Tentacle> _tempTentacles;
-        private List<Transform> _tentacleAnchors;
+        private Queue<Transform> _tentacleAnchorsQueue;
         private void OnValidate()
         {
             if (_tentaclesOnScene == null || _tentaclesOnScene.Count <= 0)
@@ -36,11 +36,13 @@ namespace Prototype
                 tentacle.OnStateChangedCallback = OnStateChangedCallback;
             }
 
-            _tentacleAnchors = new List<Transform>(_tentacleAnchorsRoot.childCount);
+            var tentacleAnchors = new List<Transform>(_tentacleAnchorsRoot.childCount);
             foreach (Transform child in _tentacleAnchorsRoot)
             {
-                _tentacleAnchors.Add(child);
+                tentacleAnchors.Add(child);
             }
+
+            _tentacleAnchorsQueue = new Queue<Transform>(tentacleAnchors);
         }
 
         private void OnStateChangedCallback(Tentacle tentacle, Tentacle.TentacleState tentacleState)
@@ -81,23 +83,25 @@ namespace Prototype
                 _isBehaviourChanged = true;
             }
         }
+        
+        private Transform GetAnchorForTentacle(Tentacle tentacle)
+        {
+            if (!_tentacleAnchorsQueue.Any())
+            {
+                Debug.LogError("Anchors is ran out!");
+                var nullGo = new GameObject("NULL_ANCHOR");
+                nullGo.transform.position = Vector3.zero;
+                return nullGo.transform;
+            }
+            Transform nearestAnchor = _tentacleAnchorsQueue.Dequeue();
+            return nearestAnchor;
+        }
 
         private void ChangeBehaviour()
         {
             foreach (var tentacle in _tempTentacles)
             {
-                Transform nearestAnchor = null;
-
-                float nearestDistance = Mathf.Infinity;
-                foreach (var anchor in _tentacleAnchors)
-                {
-                    var distance = Vector3.Distance(anchor.position, tentacle.transform.position);
-                    if (distance < nearestDistance)
-                    {
-                        nearestAnchor = anchor;
-                        nearestDistance = distance;
-                    }
-                }
+                Transform nearestAnchor = GetAnchorForTentacle(tentacle);
 
                 tentacle.transform.position = nearestAnchor.position;
                 tentacle.transform.rotation = nearestAnchor.rotation;
@@ -123,7 +127,19 @@ namespace Prototype
                 tentacle.RootStepMover.ResetMover();
                 tentacle.RootStepMover.SetActiveMove(true);
                 
+                tentacle.OnTentacleActivated += TentacleOnTentacleActivated;
+                tentacle.OnTentacleDeactivated += TentacleOnTentacleDeactivated;
             }
+        }
+
+        private void TentacleOnTentacleDeactivated(Tentacle tentacle)
+        {
+            tentacle.RootStepMover.SetActiveMove(true);
+        }
+
+        private void TentacleOnTentacleActivated(Tentacle tentacle)
+        {
+            tentacle.RootStepMover.SetActiveMove(false);
         }
     }
 }
