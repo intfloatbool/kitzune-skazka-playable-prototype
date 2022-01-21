@@ -436,12 +436,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _startMoveIndex: 0
   _moveDataCollection:
-  - Position: {x: 0, y: 5, z: 0}
+  - Position: {x: 0, y: 6.6, z: 0}
     Speed: 5
-    Delay: 3
-  - Position: {x: 0, y: -4, z: 0}
+    Delay: 0.5
+  - Position: {x: 0, y: -6.6, z: 0}
     Speed: 5
-    Delay: 1
+    Delay: 0.5
   _currentMoveDataIndex: 0
   _isLocal: 0
 --- !u!1 &2335859189968801691
