@@ -53,6 +53,7 @@ namespace Prototype
                 {
                     tentacle.ResetMoveData();
                     tentacle.RootStepMover.SetActiveMove(false);
+                    SetAttackTargetForTentacle(tentacle);
                 }
 
                 if (tentacleState == Tentacle.TentacleState.PENDING)
@@ -129,7 +130,21 @@ namespace Prototype
                 
                 tentacle.OnTentacleActivated += TentacleOnTentacleActivated;
                 tentacle.OnTentacleDeactivated += TentacleOnTentacleDeactivated;
+
+                //tentacle.OnTriggeredCallback = OnTentacleTriggered;
             }
+        }
+
+        private void SetAttackTargetForTentacle(Tentacle tentacle)
+        {
+            var currentBodyMoveDataCollection = tentacle.BodyStepMover.MoveDataCollection.ToList();
+            var moveDataToTarget = currentBodyMoveDataCollection[1];
+            var changedData = moveDataToTarget.Clone();
+            var posToAttack = tentacle.TentacleBodyTransform.position;
+            posToAttack.x = tentacle.TargetTransform.position.x;
+            changedData.Position = tentacle.TentacleBodyTransform.InverseTransformPoint(posToAttack);
+            
+            tentacle.BodyStepMover.SetMoveData(1, changedData);
         }
 
         private void TentacleOnTentacleDeactivated(Tentacle tentacle)

@@ -17,11 +17,16 @@ namespace Prototype.Boss
         
         [SerializeField] private TriggerCollider _activateTrigger;
         [SerializeField] private TargetStepMover _bodyStepMover;
+        public TargetStepMover BodyStepMover => _bodyStepMover;
+        
         [SerializeField] private TargetStepMover _rootStepMover;
         public TargetStepMover RootStepMover => _rootStepMover;
 
         [SerializeField] private Transform _tentacleBodyTransform;
+        public Transform TentacleBodyTransform => _tentacleBodyTransform;
+        
         [SerializeField] private Transform _targetTransform;
+        public Transform TargetTransform => _targetTransform;
 
         [Space] 
         [SerializeField] private float _activationDelay = 1f;
@@ -37,7 +42,8 @@ namespace Prototype.Boss
         [Header("Runtime")] 
         [SerializeField] private TentacleState _currentState;
 
-        public event Action<Tentacle> OnKill; 
+        public event Action<Tentacle> OnKill;
+        public Action<Tentacle> OnTriggeredCallback { get; set; } 
 
         public TentacleState CurrentState
         {
@@ -115,6 +121,7 @@ namespace Prototype.Boss
                 if (!isTentacleActivated)
                 {
                     _activationCoroutine = StartCoroutine(TentacleProcessCoroutine());
+                    OnTriggeredCallback?.Invoke(this);
                 }
             }
         }

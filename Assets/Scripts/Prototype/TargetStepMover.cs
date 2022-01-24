@@ -13,6 +13,11 @@ namespace Prototype
             public Vector3 Position;
             public float Speed;
             public float Delay;
+
+            public MoveData Clone()
+            {
+                return MemberwiseClone() as MoveData;
+            }
         }
         [SerializeField] private int _startMoveIndex;
         [SerializeField] private MoveData[] _moveDataCollection;
@@ -44,6 +49,19 @@ namespace Prototype
             var currentCollection = _moveDataCollection.ToList();
             currentCollection.Add(moveData);
             _moveDataCollection = currentCollection.ToArray();
+        }
+
+        public void SetMoveData(int index, MoveData moveData)
+        {
+            try
+            {
+                _moveDataCollection[index] = moveData;
+            }
+            catch (Exception ex)
+            {
+                Debug.LogError("ERROR! " + ex);
+            }
+            
         }
 
         public void ClearMoveData()
