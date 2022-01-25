@@ -276,7 +276,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 647683652}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalPosition: {x: 2.4677982, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1049947734}
@@ -294,11 +294,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9cf9c5931a3b3c4ba456c8213d7ebfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_position: {x: -11.5, y: -8.27, z: 1}
-  m_precedingControlPointLocalPosition: {x: -1, y: 0, z: 0}
-  m_precedingControlPointPosition: {x: -12.5, y: -8.27, z: 1}
-  m_followingControlPointLocalPosition: {x: 1, y: 0, z: 0}
-  m_followingControlPointPosition: {x: -10.5, y: -8.27, z: 1}
+  m_position: {x: -9.032202, y: -8.27, z: 1}
+  m_precedingControlPointLocalPosition: {x: -6.884239, y: 0, z: -0.000000834465}
+  m_precedingControlPointPosition: {x: -15.916441, y: -8.27, z: 0.99999917}
+  m_followingControlPointLocalPosition: {x: 6.884239, y: 0, z: 0.000000834465}
+  m_followingControlPointPosition: {x: -2.1479626, y: -8.27, z: 1.0000008}
   m_handleMode: 2
   m_normal: {x: 0, y: 1, z: 0}
   m_autoCalculatedNormalAngleOffset: 0
@@ -873,7 +873,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spline: {fileID: 1116101990}
   travelMode: 2
-  speed: 5
+  speed: 10
   m_normalizedT: 0
   rotationLerpModifier: 10
   lookAt: 0
@@ -921,7 +921,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1116101988}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.95, y: -8.07, z: 0}
+  m_LocalPosition: {x: 13.14, y: -8.12, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1593073943}
@@ -1125,8 +1125,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1190561063}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.61528015, y: 16.528624, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0.3345036, w: 0.94239455}
+  m_LocalPosition: {x: 2.5784578, y: 16.312984, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1049947734}
@@ -1144,11 +1144,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9cf9c5931a3b3c4ba456c8213d7ebfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_position: {x: -12.11528, y: 8.258623, z: 0}
-  m_precedingControlPointLocalPosition: {x: 6.2303953, y: 8.690817, z: -0.0000022823174}
-  m_precedingControlPointPosition: {x: -5.884885, y: 16.94944, z: -0.0000022823174}
-  m_followingControlPointLocalPosition: {x: -6.2303953, y: -8.690817, z: 0.0000022823174}
-  m_followingControlPointPosition: {x: -18.345676, y: -0.43219376, z: 0.0000022823174}
+  m_position: {x: -8.921542, y: 8.042984, z: 0}
+  m_precedingControlPointLocalPosition: {x: 5.410189, y: 7.5467052, z: 0.00000067280587}
+  m_precedingControlPointPosition: {x: 0.03588772, y: 10.489893, z: 0.00000067280587}
+  m_followingControlPointLocalPosition: {x: -5.410189, y: -7.546706, z: -0.00000067280587}
+  m_followingControlPointPosition: {x: -17.878971, y: 5.596075, z: -0.00000067280587}
   m_handleMode: 2
   m_normal: {x: 0, y: 1, z: 0}
   m_autoCalculatedNormalAngleOffset: 0
@@ -1187,8 +1187,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1203860753}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.40529993, w: 0.91418386}
+  m_LocalPosition: {x: -3.5025053, y: 0.21563911, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1116101989}
@@ -1206,11 +1206,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9cf9c5931a3b3c4ba456c8213d7ebfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_position: {x: 11.95, y: -8.07, z: 1}
-  m_precedingControlPointLocalPosition: {x: -1, y: 0, z: 0}
-  m_precedingControlPointPosition: {x: 10.95, y: -8.07, z: 1}
-  m_followingControlPointLocalPosition: {x: 1, y: 0, z: 0}
-  m_followingControlPointPosition: {x: 12.95, y: -8.07, z: 1}
+  m_position: {x: 9.637495, y: -7.904361, z: 1}
+  m_precedingControlPointLocalPosition: {x: 5.0570993, y: 5.3232827, z: 0.00000011920929}
+  m_precedingControlPointPosition: {x: 16.977905, y: -8.077468, z: 1.0000001}
+  m_followingControlPointLocalPosition: {x: -5.0570993, y: -5.3232827, z: -0.00000011920929}
+  m_followingControlPointPosition: {x: 2.2970848, y: -7.7312536, z: 0.9999999}
   m_handleMode: 2
   m_normal: {x: 0, y: 1, z: 0}
   m_autoCalculatedNormalAngleOffset: 0
@@ -1266,7 +1266,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spline: {fileID: 1049947733}
   travelMode: 2
-  speed: 5
+  speed: 10
   m_normalizedT: 0
   rotationLerpModifier: 10
   lookAt: 0
@@ -1572,8 +1572,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1593073942}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.61528015, y: 16.528624, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 0.36881244, w: 0.92950386}
+  m_LocalPosition: {x: -4.782058, y: 16.132034, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1116101989}
@@ -1591,11 +1591,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9cf9c5931a3b3c4ba456c8213d7ebfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_position: {x: 11.33472, y: 8.458624, z: 0}
-  m_precedingControlPointLocalPosition: {x: -6.5733767, y: 8.917835, z: 0.00000043729153}
-  m_precedingControlPointPosition: {x: 4.761343, y: 17.37646, z: 0.00000043729153}
-  m_followingControlPointLocalPosition: {x: 6.5733767, y: -8.917834, z: -0.00000043729153}
-  m_followingControlPointPosition: {x: 17.908096, y: -0.4592104, z: -0.00000043729153}
+  m_position: {x: 8.357943, y: 8.012034, z: 0}
+  m_precedingControlPointLocalPosition: {x: -5.758026, y: 5.6233788, z: 0.0000001559135}
+  m_precedingControlPointPosition: {x: 0.31082916, y: 8.157752, z: 0.0000001559135}
+  m_followingControlPointLocalPosition: {x: 5.758027, y: -5.6233783, z: -0.0000001559135}
+  m_followingControlPointPosition: {x: 16.405056, y: 7.8663177, z: -0.0000001559135}
   m_handleMode: 2
   m_normal: {x: 0, y: 1, z: 0}
   m_autoCalculatedNormalAngleOffset: 0
