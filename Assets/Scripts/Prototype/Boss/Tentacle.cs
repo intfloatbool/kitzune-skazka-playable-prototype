@@ -81,10 +81,10 @@ namespace Prototype.Boss
         private void Start()
         {
             CurrentState = TentacleState.PENDING;
-            ResetMoveData();
+            ResetBodyMoveData();
         }
 
-        public void ResetMoveData()
+        public void ResetBodyMoveData()
         {
             Vector3 baseBodyLocalPosition = _bodyLocalPositionAtStart;
             _tentacleBodyTransform.localPosition = baseBodyLocalPosition;

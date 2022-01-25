@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using BezierSolution;
+using Common;
 using Prototype.Boss;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -15,10 +17,20 @@ namespace Prototype
         [SerializeField] private float[] _delaysCollection;
         [SerializeField] private float[] _speedsCollection;
         [SerializeField] private float[] _offsetsCollection;
-        
+
+        [Space]
+        [SerializeField] private List<Transform> _rootAnchorsForTentacles;
+
         private bool _isBehaviourChanged = false;
         private LinkedList<Tentacle> _tempTentacles;
         private Queue<Transform> _tentacleAnchorsQueue;
+
+        private Dictionary<Tentacle, BezierWalkerWithSpeed> _walkersDict =
+            new Dictionary<Tentacle, BezierWalkerWithSpeed>();
+
+        private Dictionary<BezierWalkerWithSpeed, float> _walkersBasicSpeedDict =
+            new Dictionary<BezierWalkerWithSpeed, float>();
+
         private void OnValidate()
         {
             if (_tentaclesOnScene == null || _tentaclesOnScene.Count <= 0)
@@ -51,14 +63,31 @@ namespace Prototype
             {
                 if (tentacleState == Tentacle.TentacleState.ATTACK)
                 {
-                    tentacle.ResetMoveData();
-                    tentacle.RootStepMover.SetActiveMove(false);
+                    tentacle.ResetBodyMoveData();
+                    if (_walkersDict.TryGetValue(tentacle, out var walker))
+                    {
+                        walker.speed = 0;
+                        TrySetActiveLookAtComponent(walker, false);
+                    }
+                    else
+                    {
+                        Debug.LogError("Walker is missing!");
+                    }
+                    
                     SetAttackTargetForTentacle(tentacle);
                 }
 
                 if (tentacleState == Tentacle.TentacleState.PENDING)
                 {
-                    tentacle.RootStepMover.SetActiveMove(true);
+                    if (_walkersDict.TryGetValue(tentacle, out var walker))
+                    {
+                        walker.speed = _walkersBasicSpeedDict[walker];
+                        TrySetActiveLookAtComponent(walker, true);
+                    }
+                    else
+                    {
+                        Debug.LogError("Walker is missing!");
+                    }
                 }
             }
         }
@@ -104,34 +133,29 @@ namespace Prototype
             {
                 Transform nearestAnchor = GetAnchorForTentacle(tentacle);
 
-                tentacle.transform.position = nearestAnchor.position;
-                tentacle.transform.rotation = nearestAnchor.rotation;
+                BezierWalkerWithSpeed walker = nearestAnchor.GetComponent<BezierWalkerWithSpeed>();
+                if (walker)
+                {
+                    _walkersDict[tentacle] = walker;
+                    _walkersBasicSpeedDict[walker] = walker.speed;
+                }
+                else
+                {
+                    Debug.LogError("Walker is missing!");
+                }
+                
+                tentacle.RootStepMover.SetActiveMove(false);
 
-                tentacle.ResetMoveData();
-                var topPos = tentacle.transform.position + Vector3.up * _offsetsCollection[0];
-                var bottomPos = tentacle.transform.position + Vector3.up * _offsetsCollection[1];
+                tentacle.transform.parent = nearestAnchor;
                 
-                tentacle.RootStepMover.AddMoveData(new TargetStepMover.MoveData()
-                {
-                    Delay = _delaysCollection[0],
-                    Position = topPos,
-                    Speed = _speedsCollection[0]
-                });
-                
-                tentacle.RootStepMover.AddMoveData(new TargetStepMover.MoveData()
-                {
-                    Delay = _delaysCollection[1],
-                    Position = bottomPos,
-                    Speed = _speedsCollection[1]
-                });
-                
-                tentacle.RootStepMover.ResetMover();
-                tentacle.RootStepMover.SetActiveMove(true);
-                
+                float offset = 5f;
+                tentacle.transform.localPosition = Vector3.right * offset;
+                tentacle.transform.localRotation = Quaternion.Euler(0,0,90);
+
+                tentacle.ResetBodyMoveData();
+
                 tentacle.OnTentacleActivated += TentacleOnTentacleActivated;
                 tentacle.OnTentacleDeactivated += TentacleOnTentacleDeactivated;
-
-                //tentacle.OnTriggeredCallback = OnTentacleTriggered;
             }
         }
 
@@ -140,8 +164,7 @@ namespace Prototype
             var currentBodyMoveDataCollection = tentacle.BodyStepMover.MoveDataCollection.ToList();
             var moveDataToTarget = currentBodyMoveDataCollection[1];
             var changedData = moveDataToTarget.Clone();
-            var posToAttack = tentacle.TentacleBodyTransform.position;
-            posToAttack.x = tentacle.TargetTransform.position.x;
+            var posToAttack = tentacle.TargetTransform.position;
             changedData.Position = tentacle.TentacleBodyTransform.InverseTransformPoint(posToAttack);
             
             tentacle.BodyStepMover.SetMoveData(1, changedData);
@@ -149,12 +172,36 @@ namespace Prototype
 
         private void TentacleOnTentacleDeactivated(Tentacle tentacle)
         {
-            tentacle.RootStepMover.SetActiveMove(true);
+            if (_walkersDict.TryGetValue(tentacle, out var walker))
+            {
+                walker.speed = _walkersBasicSpeedDict[walker];
+                TrySetActiveLookAtComponent(walker, true);
+            }
+            else
+            {
+                Debug.LogError("Walker is missing!");
+            }
         }
 
         private void TentacleOnTentacleActivated(Tentacle tentacle)
         {
-            tentacle.RootStepMover.SetActiveMove(false);
+            if (_walkersDict.TryGetValue(tentacle, out var walker))
+            {
+                walker.speed = 0;
+                TrySetActiveLookAtComponent(walker, false);
+            }
+            else
+            {
+                Debug.LogError("Walker is missing!");
+            }
+        }
+
+        private void TrySetActiveLookAtComponent(BezierWalkerWithSpeed walker, bool isActive)
+        {
+            if (walker.TryGetComponent(out LookAt2DComponent lookAt2DComponent))
+            {
+                lookAt2DComponent.SetIsEnabled(isActive);                
+            }
         }
     }
 }

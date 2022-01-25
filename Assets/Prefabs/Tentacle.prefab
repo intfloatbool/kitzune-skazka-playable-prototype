@@ -99,6 +99,7 @@ MonoBehaviour:
   _startMoveIndex: 0
   _moveDataCollection: []
   _currentMoveDataIndex: 0
+  _isLocal: 0
 --- !u!1 &2473008851003068127
 GameObject:
   m_ObjectHideFlags: 0
@@ -151,6 +152,7 @@ MonoBehaviour:
   _startMoveIndex: 0
   _moveDataCollection: []
   _currentMoveDataIndex: 0
+  _isLocal: 0
 --- !u!1 &2473008851151695901
 GameObject:
   m_ObjectHideFlags: 0
