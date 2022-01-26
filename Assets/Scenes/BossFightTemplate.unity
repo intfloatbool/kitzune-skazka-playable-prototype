@@ -275,8 +275,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 647683652}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.4677982, y: 0, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.13993815, w: 0.9901602}
+  m_LocalPosition: {x: 1.6272125, y: 0.36024857, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1049947734}
@@ -294,11 +294,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9cf9c5931a3b3c4ba456c8213d7ebfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_position: {x: -9.032202, y: -8.27, z: 1}
+  m_position: {x: -9.872787, y: -7.909752, z: 1}
   m_precedingControlPointLocalPosition: {x: -6.884239, y: 0, z: -0.000000834465}
-  m_precedingControlPointPosition: {x: -15.916441, y: -8.27, z: 0.99999917}
+  m_precedingControlPointPosition: {x: -16.487404, y: -9.817529, z: 0.99999917}
   m_followingControlPointLocalPosition: {x: 6.884239, y: 0, z: 0.000000834465}
-  m_followingControlPointPosition: {x: -2.1479626, y: -8.27, z: 1.0000008}
+  m_followingControlPointPosition: {x: -3.258172, y: -6.001975, z: 1.0000008}
   m_handleMode: 2
   m_normal: {x: 0, y: 1, z: 0}
   m_autoCalculatedNormalAngleOffset: 0
@@ -844,7 +844,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1089983551
 Transform:
   m_ObjectHideFlags: 0
@@ -1125,8 +1125,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1190561063}
-  m_LocalRotation: {x: -0, y: -0, z: -0.3345036, w: 0.94239455}
-  m_LocalPosition: {x: 2.5784578, y: 16.312984, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0.5103337, w: 0.8599765}
+  m_LocalPosition: {x: 2.5784569, y: 16.373024, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1049947734}
@@ -1144,11 +1144,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9cf9c5931a3b3c4ba456c8213d7ebfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_position: {x: -8.921542, y: 8.042984, z: 0}
+  m_position: {x: -8.921543, y: 8.103024, z: 0}
   m_precedingControlPointLocalPosition: {x: 5.410189, y: 7.5467052, z: 0.00000067280587}
-  m_precedingControlPointPosition: {x: 0.03588772, y: 10.489893, z: 0.00000067280587}
+  m_precedingControlPointPosition: {x: 0.29470158, y: 6.9699993, z: 0.00000067280587}
   m_followingControlPointLocalPosition: {x: -5.410189, y: -7.546706, z: -0.00000067280587}
-  m_followingControlPointPosition: {x: -17.878971, y: 5.596075, z: -0.00000067280587}
+  m_followingControlPointPosition: {x: -18.137789, y: 9.236046, z: -0.00000067280587}
   m_handleMode: 2
   m_normal: {x: 0, y: 1, z: 0}
   m_autoCalculatedNormalAngleOffset: 0
@@ -1187,8 +1187,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1203860753}
-  m_LocalRotation: {x: -0, y: -0, z: -0.40529993, w: 0.91418386}
-  m_LocalPosition: {x: -4.052455, y: 16.10309, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.27663332, w: 0.9609756}
+  m_LocalPosition: {x: -5.073165, y: 16.223175, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1116101989}
@@ -1206,11 +1206,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9cf9c5931a3b3c4ba456c8213d7ebfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_position: {x: 9.087545, y: 7.9830904, z: 1}
+  m_position: {x: 8.066835, y: 8.103175, z: 1}
   m_precedingControlPointLocalPosition: {x: 5.0570993, y: 5.3232827, z: 0.00000011920929}
-  m_precedingControlPointPosition: {x: 16.427956, y: 7.8099833, z: 1.0000001}
+  m_precedingControlPointPosition: {x: 15.180196, y: 9.922982, z: 1.0000001}
   m_followingControlPointLocalPosition: {x: -5.0570993, y: -5.3232827, z: -0.00000011920929}
-  m_followingControlPointPosition: {x: 1.7471342, y: 8.156198, z: 0.9999999}
+  m_followingControlPointPosition: {x: 0.953475, y: 6.283368, z: 0.9999999}
   m_handleMode: 2
   m_normal: {x: 0, y: 1, z: 0}
   m_autoCalculatedNormalAngleOffset: 0
@@ -1237,7 +1237,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1281709465
 Transform:
   m_ObjectHideFlags: 0
@@ -1572,8 +1572,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1593073942}
-  m_LocalRotation: {x: -0, y: -0, z: 0.36881244, w: 0.92950386}
-  m_LocalPosition: {x: -3.4377356, y: 0.4279027, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 0.40319145, w: 0.9151156}
+  m_LocalPosition: {x: -4.818698, y: -0.11247444, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1116101989}
@@ -1591,11 +1591,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9cf9c5931a3b3c4ba456c8213d7ebfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_position: {x: 9.702265, y: -7.692097, z: 0}
-  m_precedingControlPointLocalPosition: {x: -5.758026, y: 5.6233788, z: 0.0000001559135}
-  m_precedingControlPointPosition: {x: 1.6551514, y: -7.5463796, z: 0.0000001559135}
-  m_followingControlPointLocalPosition: {x: 5.758027, y: -5.6233783, z: -0.0000001559135}
-  m_followingControlPointPosition: {x: 17.749378, y: -7.837814, z: -0.0000001559135}
+  m_position: {x: 8.321302, y: -8.232474, z: 0}
+  m_precedingControlPointLocalPosition: {x: -7.499001, y: 7.323639, z: 0.00000024423144}
+  m_precedingControlPointPosition: {x: -2.1439323, y: -8.82371, z: 0.00000024423144}
+  m_followingControlPointLocalPosition: {x: 7.499001, y: -7.323639, z: -0.00000024423144}
+  m_followingControlPointPosition: {x: 18.786537, y: -7.641238, z: -0.00000024423144}
   m_handleMode: 2
   m_normal: {x: 0, y: 1, z: 0}
   m_autoCalculatedNormalAngleOffset: 0

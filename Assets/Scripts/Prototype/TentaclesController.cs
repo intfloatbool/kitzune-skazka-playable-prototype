@@ -132,7 +132,7 @@ namespace Prototype
             foreach (var tentacle in _tempTentacles)
             {
                 Transform nearestAnchor = GetAnchorForTentacle(tentacle);
-
+                nearestAnchor.gameObject.SetActive(true);
                 BezierWalkerWithSpeed walker = nearestAnchor.GetComponent<BezierWalkerWithSpeed>();
                 if (walker)
                 {
