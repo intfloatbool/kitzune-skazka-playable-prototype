@@ -156,6 +156,8 @@ namespace Prototype
 
                 tentacle.OnTentacleActivated += TentacleOnTentacleActivated;
                 tentacle.OnTentacleDeactivated += TentacleOnTentacleDeactivated;
+
+                tentacle.IsActiveAutoAttack = true;
             }
         }
 

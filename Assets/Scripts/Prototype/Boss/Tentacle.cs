@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using Prototype.Player;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Prototype.Boss
 {
@@ -38,9 +39,15 @@ namespace Prototype.Boss
         public event Action<Tentacle> OnTentacleActivated;
         public event Action<Tentacle> OnTentacleDeactivated;
 
+        [SerializeField] private float _autoattackTimeSecondsMax = 3f;
+        [SerializeField] private float _autoattackTimeSecondsMin = 0.5f;
+
+        private float _autoattackTimeSeconds;
+        
         [Space] 
         [Header("Runtime")] 
         [SerializeField] private TentacleState _currentState;
+        
 
         public event Action<Tentacle> OnKill;
         public Action<Tentacle> OnTriggeredCallback { get; set; } 
@@ -58,12 +65,18 @@ namespace Prototype.Boss
         public Action<Tentacle, TentacleState> OnStateChangedCallback { get; set; } 
 
         private Vector3 _bodyLocalPositionAtStart;
+
+        private float _autoattackTimer;
+
+        public bool IsActiveAutoAttack { get; set; } = false;
         
         private void Awake()
         {
             _activateTrigger.OnTriggerCallback = OnActivateTriggerEnter;
 
             _bodyLocalPositionAtStart = _tentacleBodyTransform.localPosition;
+
+            _autoattackTimeSeconds = Random.Range(_autoattackTimeSecondsMin, _autoattackTimeSecondsMax);
         }
 
         public void RestMove()
@@ -117,13 +130,18 @@ namespace Prototype.Boss
             var player = triggerable.GetComponent<FoxPlayer>();
             if (player)
             {
-                bool isTentacleActivated = _activationCoroutine != null;
-                if (!isTentacleActivated)
-                {
-                    _activationCoroutine = StartCoroutine(TentacleProcessCoroutine());
-                    OnTriggeredCallback?.Invoke(this);
-                }
+                StartAttack();
             }
+        }
+
+        public void StartAttack()
+        {
+            bool isTentacleActivated = _activationCoroutine != null;
+            if (!isTentacleActivated)
+            {
+                _activationCoroutine = StartCoroutine(TentacleProcessCoroutine());
+                OnTriggeredCallback?.Invoke(this);
+            } 
         }
 
         private IEnumerator TentacleProcessCoroutine()
@@ -154,12 +172,34 @@ namespace Prototype.Boss
             }
 
             _bodyStepMover.SetActiveMove(false);
-            
+
+            _autoattackTimer = 0f;
             _activationCoroutine = null;
             OnTentacleDeactivated?.Invoke(this);
             
             CurrentState = TentacleState.PENDING;
             yield return null;
+        }
+
+        private void Update()
+        {
+            if(IsActiveAutoAttack)
+                AutoAttackLoop();
+        }
+
+        private void AutoAttackLoop()
+        {
+            if(_activationCoroutine != null)
+                return;
+            
+            if (_autoattackTimer > _autoattackTimeSeconds)
+            {
+                 StartAttack();
+                 _autoattackTimer = 0f;
+                 _autoattackTimeSeconds = Random.Range(_autoattackTimeSecondsMin, _autoattackTimeSecondsMax);
+            }
+
+            _autoattackTimer += Time.deltaTime;
         }
     }
 }
