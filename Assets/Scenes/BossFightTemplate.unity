@@ -2180,6 +2180,34 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7288985348950365164, guid: c675e28a562e65846a80aa5ab71ecbd6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7288985348950365164, guid: c675e28a562e65846a80aa5ab71ecbd6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7288985348950365164, guid: c675e28a562e65846a80aa5ab71ecbd6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1003452073}
+    - target: {fileID: 7288985348950365164, guid: c675e28a562e65846a80aa5ab71ecbd6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7288985348950365164, guid: c675e28a562e65846a80aa5ab71ecbd6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: EatRandomTentacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 7288985348950365164, guid: c675e28a562e65846a80aa5ab71ecbd6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Prototype.TentaclesController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7288985348950365164, guid: c675e28a562e65846a80aa5ab71ecbd6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7322870374326240665, guid: c675e28a562e65846a80aa5ab71ecbd6, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2201,6 +2229,30 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7322870374326240665, guid: c675e28a562e65846a80aa5ab71ecbd6, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8992704050734121948, guid: c675e28a562e65846a80aa5ab71ecbd6, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8992704050734121948, guid: c675e28a562e65846a80aa5ab71ecbd6, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8992704050734121948, guid: c675e28a562e65846a80aa5ab71ecbd6, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8992704050734121948, guid: c675e28a562e65846a80aa5ab71ecbd6, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8992704050734121948, guid: c675e28a562e65846a80aa5ab71ecbd6, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8992704050734121948, guid: c675e28a562e65846a80aa5ab71ecbd6, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}

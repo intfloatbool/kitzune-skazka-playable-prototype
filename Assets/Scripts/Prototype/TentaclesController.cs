@@ -14,9 +14,9 @@ namespace Prototype
         [SerializeField] private List<Tentacle> _tentaclesOnScene;
         [SerializeField] private Transform _tentacleAnchorsRoot;
         [SerializeField] private int _countToChangeBehaviour = 3;
-        [SerializeField] private float[] _delaysCollection;
-        [SerializeField] private float[] _speedsCollection;
-        [SerializeField] private float[] _offsetsCollection;
+
+        [Space] 
+        [SerializeField] private float _attackSpeedIncrease = 2f; 
 
         [Space]
         [SerializeField] private List<Transform> _rootAnchorsForTentacles;
@@ -31,11 +31,43 @@ namespace Prototype
         private Dictionary<BezierWalkerWithSpeed, float> _walkersBasicSpeedDict =
             new Dictionary<BezierWalkerWithSpeed, float>();
 
+        private TentacleThroatCollider _treeThroat;
+
         private void OnValidate()
         {
             if (_tentaclesOnScene == null || _tentaclesOnScene.Count <= 0)
             {
                 _tentaclesOnScene = FindObjectsOfType<Tentacle>().ToList();
+            }
+        }
+
+        private void Awake()
+        {
+            _treeThroat = FindObjectOfType<TentacleThroatCollider>();
+            _treeThroat.OnTentacleEatenEv += TreeThroatOnTentacleEatenEv;
+        }
+
+        private void OnDestroy()
+        {
+            if(_treeThroat)
+                _treeThroat.OnTentacleEatenEv -= TreeThroatOnTentacleEatenEv;
+        }
+
+        private void TreeThroatOnTentacleEatenEv()
+        {
+            foreach (var tentacle in _tempTentacles)
+            {
+                var currentMoveDataCollection = tentacle.BodyStepMover.MoveDataCollection.ToList();
+                int index = 0;
+                foreach (var moveData in currentMoveDataCollection)
+                {
+                    var clone = moveData.Clone();
+                    clone.Speed += _attackSpeedIncrease;
+                    tentacle.BodyStepMover.SetMoveData(index, clone);
+                    tentacle.SetSpeedInCollection(index, clone.Speed);
+                    index++;
+                }
+                
             }
         }
 
@@ -100,6 +132,19 @@ namespace Prototype
                 var target = tentacles[Random.Range(0, tentacles.Count)];
                 target.Kill();
             }
+        }
+
+        public void EatRandomTentacle()
+        {
+            var tentacles = _tempTentacles.ToList();
+            if (tentacles.Any())
+            {
+                var target = tentacles[Random.Range(0, tentacles.Count)];
+                if (_treeThroat)
+                {
+                    _treeThroat.EatTentacle(target);
+                }
+            } 
         }
 
         private void TentacleOnKill(Tentacle tentacle)

@@ -12,6 +12,8 @@ namespace Prototype
         
         public Action OnTentacleEatenCallback { get; set; }
 
+        public event Action OnTentacleEatenEv; 
+
         private void Start()
         {
             _currentTentacles = new LinkedList<Tentacle>(FindObjectsOfType<Tentacle>());
@@ -22,14 +24,20 @@ namespace Prototype
             var tentacle = triggerableObject.GetComponentInParent<Tentacle>();
             if (tentacle)
             {
-                _currentTentacles.Remove(tentacle);
-                tentacle.Kill();
-                OnTentacleEatenCallback?.Invoke();
+                EatTentacle(tentacle);
             }
             else
             {
                 Debug.LogError("Tentacle is missing!");
             }
+        }
+
+        public void EatTentacle(Tentacle tentacle)
+        {
+            _currentTentacles.Remove(tentacle);
+            tentacle.Kill();
+            OnTentacleEatenCallback?.Invoke();
+            OnTentacleEatenEv?.Invoke();
         }
     }
 }

@@ -129,6 +129,14 @@ namespace Prototype.Boss
             });
         }
 
+        public void SetSpeedInCollection(int index, float speed)
+        {
+            if(index > _speedsCollection.Length - 1)
+                return;
+            
+            _speedsCollection[index] = speed;
+        }
+
         private void OnActivateTriggerEnter(TriggerableObject triggerable, Collider2D col)
         {
             var player = triggerable.GetComponent<FoxPlayer>();

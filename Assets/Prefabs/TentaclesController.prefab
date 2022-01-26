@@ -52,12 +52,5 @@ MonoBehaviour:
   - {fileID: 0}
   _tentacleAnchorsRoot: {fileID: 0}
   _countToChangeBehaviour: 2
-  _delaysCollection:
-  - 0.2
-  - 0.2
-  _speedsCollection:
-  - 7
-  - 7
-  _offsetsCollection:
-  - 3
-  - -3
+  _attackSpeedIncrease: 5
+  _rootAnchorsForTentacles: []
