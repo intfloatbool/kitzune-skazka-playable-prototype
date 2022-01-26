@@ -69,6 +69,8 @@ namespace Prototype.Boss
         private float _autoattackTimer;
 
         public bool IsActiveAutoAttack { get; set; } = false;
+
+        private BossTree _bossTree;
         
         private void Awake()
         {
@@ -77,6 +79,8 @@ namespace Prototype.Boss
             _bodyLocalPositionAtStart = _tentacleBodyTransform.localPosition;
 
             _autoattackTimeSeconds = Random.Range(_autoattackTimeSecondsMin, _autoattackTimeSecondsMax);
+
+            _bossTree = FindObjectOfType<BossTree>();
         }
 
         public void RestMove()
@@ -136,6 +140,9 @@ namespace Prototype.Boss
 
         public void StartAttack()
         {
+            if(_bossTree && _bossTree.IsBossStopped)
+                return;
+            
             bool isTentacleActivated = _activationCoroutine != null;
             if (!isTentacleActivated)
             {
@@ -163,6 +170,11 @@ namespace Prototype.Boss
             
             while (!isProcessDone)
             {
+                if (_bossTree && _bossTree.IsBossStopped)
+                {
+                    RestMove();
+                }
+                
                 if (Vector3.Distance(_bodyStepMover.transform.position, _targetTransform.position) <= 0.03f)
                 {
                     CurrentState = TentacleState.RETURN;

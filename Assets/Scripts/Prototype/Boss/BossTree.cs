@@ -25,6 +25,8 @@ namespace Prototype.Boss
 
         private int _tentaclesEatenCount;
         private int _speedUpCount;
+
+        public bool IsBossStopped { get; private set; }
         
         private void Start()
         {
@@ -37,6 +39,7 @@ namespace Prototype.Boss
         private void ResumeMove()
         {
             _stepMover.SetActiveMove(true);
+            IsBossStopped = false;
         }
 
         private void OnTentacleEatenCallback()
@@ -46,12 +49,13 @@ namespace Prototype.Boss
                 _stepMover.SetCurrentMoveDataIndex(0);   
             }
             _stepMover.SetActiveMove(false);
+            IsBossStopped = true;
             Invoke(nameof(ResumeMove), _pauseMoveBetweenEatDelay);
             
             
             foreach (var existedTentacle in _throatCollider.CurrentTentacles)
             {
-                if (existedTentacle.CurrentState == Tentacle.TentacleState.ATTACK)
+                if (existedTentacle.CurrentState == Tentacle.TentacleState.ATTACK || existedTentacle.CurrentState == Tentacle.TentacleState.PENDING)
                 {
                     existedTentacle.RestMove();
                 }
