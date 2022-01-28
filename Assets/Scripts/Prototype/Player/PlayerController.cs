@@ -1,3 +1,4 @@
+using UnityEditor.Animations;
 using UnityEngine;
 
 namespace Prototype.Player
@@ -5,7 +6,8 @@ namespace Prototype.Player
     public class PlayerController : ActivateableBase
     {
         [SerializeField] private InputController _inputController;
-
+        [SerializeField] private Animator _animator;
+        
         [Range(0, 1f)]
         [SerializeField] private float _moveThreshold = 0.5f;
         
@@ -15,6 +17,8 @@ namespace Prototype.Player
         private Vector3 _minMoveBorder;
 
         private Vector3 _lastPosition;
+
+        private readonly string _speedAnimatorKey = "speed";
 
         private void Start()
         {
@@ -33,6 +37,8 @@ namespace Prototype.Player
             );
 
             _lastPosition = transform.position;
+            
+            _animator.SetFloat(_speedAnimatorKey, 0);
 
 
         }
@@ -81,6 +87,10 @@ namespace Prototype.Player
 
                     transform.position = nextPosition;
                     _lastPosition = nextPosition;
+
+                    float normalizedMoveValue =
+                        Mathf.Clamp01(Mathf.Abs(moveDirection.x) + Mathf.Abs(moveDirection.y) / 2f);
+                    _animator.SetFloat(_speedAnimatorKey, normalizedMoveValue);
                 }
             }
             else
