@@ -47,7 +47,11 @@ namespace Prototype.Boss
         [Space] 
         [Header("Runtime")] 
         [SerializeField] private TentacleState _currentState;
-        
+
+        [SerializeField] private Animator _animator;
+
+        private readonly string attackAnimationTriggerKey = "attack";
+        private readonly string speedAnimationKey = "speed";
 
         public event Action<Tentacle> OnKill;
         public Action<Tentacle> OnTriggeredCallback { get; set; } 
@@ -176,6 +180,8 @@ namespace Prototype.Boss
 
             yield return new WaitForEndOfFrame();
             
+            _animator.SetFloat(speedAnimationKey, _speedsCollection[1] / 3f);
+            _animator.SetTrigger(attackAnimationTriggerKey);
             while (!isProcessDone)
             {
                 if (_bossTree && _bossTree.IsBossStopped)
