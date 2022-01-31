@@ -58,8 +58,9 @@ namespace Prototype.Player
                     _inputController.Vertical,
                     0
                 );
-                
 
+
+                float animatorSpeed = Mathf.Epsilon;
                 if (Mathf.Abs(moveDirection.x) > Mathf.Epsilon || Mathf.Abs(moveDirection.y) > Mathf.Epsilon)
                 {
                     var nextPosition = transform.position + moveDirection *  _moveSpeed * Time.deltaTime;
@@ -90,8 +91,10 @@ namespace Prototype.Player
 
                     float normalizedMoveValue =
                         Mathf.Clamp01(Mathf.Abs(moveDirection.x) + Mathf.Abs(moveDirection.y) / 2f);
-                    _animator.SetFloat(_speedAnimatorKey, normalizedMoveValue);
+                    animatorSpeed = normalizedMoveValue;
                 }
+                
+                _animator.SetFloat(_speedAnimatorKey, animatorSpeed);
             }
             else
             {
