@@ -503,10 +503,10 @@ GameObject:
   - component: {fileID: 1722218699690668626}
   - component: {fileID: 1722218699690668627}
   - component: {fileID: 1722218699690668624}
-  - component: {fileID: 1722218699690668625}
   - component: {fileID: 1722218699690668630}
   - component: {fileID: 1722218699690668631}
   - component: {fileID: 7378017328685681537}
+  - component: {fileID: 6231524179729772595}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -567,32 +567,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!61 &1722218699690668625
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1722218699690668637}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.71079075}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 2.4215815}
-  m_EdgeRadius: 0
 --- !u!114 &1722218699690668630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -649,6 +623,57 @@ MonoBehaviour:
   _activateableCollection:
   - {fileID: 1722218699690668627}
   _defaultActivationState: 1
+--- !u!60 &6231524179729772595
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1722218699690668637}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.56450015, y: 0.5860088}
+      - {x: 0.5615987, y: 0.65262675}
+      - {x: 0.48384354, y: 0.69747066}
+      - {x: 0.32009184, y: 0.6358137}
+      - {x: 0.2865644, y: 0.6800809}
+      - {x: 0.10400036, y: 0.85375214}
+      - {x: 0.29700387, y: 1.1112642}
+      - {x: 0.2550312, y: 1.181165}
+      - {x: 0.24934492, y: 1.6657426}
+      - {x: 0.06761205, y: 1.4064138}
+      - {x: -0.31639475, y: 1.4097793}
+      - {x: -0.48217162, y: 1.5767128}
+      - {x: -0.4298798, y: 1.1801124}
+      - {x: -0.40762714, y: 1.070462}
+      - {x: -0.357384, y: 0.9858165}
+      - {x: -0.21882829, y: 0.85489774}
+      - {x: -0.34501502, y: 0.7870383}
+      - {x: -0.40207493, y: 0.36461}
+      - {x: -0.32701948, y: 0.20845175}
+      - {x: -0.30844167, y: 0.07778752}
+      - {x: -0.10932827, y: 0.04979372}
+      - {x: 0.10664958, y: 0.041807175}
+      - {x: 0.24261011, y: 0.102879286}
+      - {x: 0.16733822, y: 0.49972057}
+      - {x: 0.32151467, y: 0.43082643}
+      - {x: 0.50341845, y: 0.48971504}
 --- !u!1 &1722218699780140742
 GameObject:
   m_ObjectHideFlags: 0
