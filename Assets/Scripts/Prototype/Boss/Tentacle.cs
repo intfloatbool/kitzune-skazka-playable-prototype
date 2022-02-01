@@ -50,8 +50,10 @@ namespace Prototype.Boss
 
         [SerializeField] private Animator _animator;
 
-        private readonly string attackAnimationTriggerKey = "attack";
+        private readonly string isAttackAnimationKey = "isAttack";
+        private readonly string triggerAnimationTriggerKey = "trigger";
         private readonly string speedAnimationKey = "speed";
+        private readonly string attackAnimationKey = "Attack";
 
         public event Action<Tentacle> OnKill;
         public Action<Tentacle> OnTriggeredCallback { get; set; } 
@@ -166,6 +168,8 @@ namespace Prototype.Boss
         private IEnumerator TentacleProcessCoroutine()
         {
             OnTentacleActivated?.Invoke(this);
+            _animator.SetTrigger(triggerAnimationTriggerKey);
+            _animator.SetBool(isAttackAnimationKey, true);
             yield return new WaitForSeconds(_activationDelay);
 
             CurrentState = TentacleState.ATTACK;
@@ -180,12 +184,12 @@ namespace Prototype.Boss
 
             yield return new WaitForEndOfFrame();
             
-            _animator.SetFloat(speedAnimationKey, _speedsCollection[1] / 3f);
-            _animator.SetTrigger(attackAnimationTriggerKey);
+            
             while (!isProcessDone)
             {
                 if (_bossTree && _bossTree.IsBossStopped)
                 {
+                    _animator.SetBool(isAttackAnimationKey, false);
                     RestMove();
                 }
                 
@@ -197,6 +201,7 @@ namespace Prototype.Boss
                 yield return null;
             }
 
+            _animator.SetBool(isAttackAnimationKey, false);
             _bodyStepMover.SetActiveMove(false);
 
             _autoattackTimer = 0f;
