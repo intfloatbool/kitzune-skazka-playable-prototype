@@ -483,7 +483,7 @@ MonoBehaviour:
   - Position: {x: 0, y: 6.6, z: 0}
     Speed: 5
     Delay: 0.5
-  - Position: {x: 0, y: -6.6, z: 0}
+  - Position: {x: 0, y: -5.1, z: 0}
     Speed: 5
     Delay: 0.5
   _currentMoveDataIndex: 0
