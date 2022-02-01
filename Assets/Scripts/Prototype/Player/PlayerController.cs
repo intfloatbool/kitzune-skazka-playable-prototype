@@ -19,6 +19,7 @@ namespace Prototype.Player
         private Vector3 _lastPosition;
 
         private readonly string _speedAnimatorKey = "speed";
+        private readonly string _isMoveAnimatorKey = "isMove"; 
 
         private void Start()
         {
@@ -92,9 +93,14 @@ namespace Prototype.Player
                     float normalizedMoveValue =
                         Mathf.Clamp01(Mathf.Abs(moveDirection.x) + Mathf.Abs(moveDirection.y) / 2f);
                     animatorSpeed = normalizedMoveValue;
+                    _animator.SetBool(_isMoveAnimatorKey, true);
+                }
+                else
+                {
+                    _animator.SetFloat(_speedAnimatorKey, 1f);
+                    _animator.SetBool(_isMoveAnimatorKey, false);
                 }
                 
-                _animator.SetFloat(_speedAnimatorKey, animatorSpeed);
             }
             else
             {

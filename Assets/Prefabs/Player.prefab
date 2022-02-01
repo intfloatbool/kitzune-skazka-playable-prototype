@@ -1938,7 +1938,7 @@ GameObject:
   - component: {fileID: 2987597528162490890}
   - component: {fileID: 2257985347824340909}
   m_Layer: 0
-  m_Name: IMG_2371_0
+  m_Name: PlayerAnimator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
