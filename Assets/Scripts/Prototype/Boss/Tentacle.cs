@@ -56,7 +56,11 @@ namespace Prototype.Boss
         private readonly string attackAnimationKey = "Attack";
 
         public event Action<Tentacle> OnKill;
-        public Action<Tentacle> OnTriggeredCallback { get; set; } 
+        public Action<Tentacle> OnTriggeredCallback { get; set; }
+
+        [SerializeField] private Transform _killTriggerTransform;
+
+        private Vector3 _basicKillTrigerLocalPos;
 
         public TentacleState CurrentState
         {
@@ -87,6 +91,8 @@ namespace Prototype.Boss
             _autoattackTimeSeconds = Random.Range(_autoattackTimeSecondsMin, _autoattackTimeSecondsMax);
 
             _bossTree = FindObjectOfType<BossTree>();
+
+            _basicKillTrigerLocalPos = _killTriggerTransform.localPosition;
         }
 
         public void RestMove()
@@ -170,6 +176,7 @@ namespace Prototype.Boss
             OnTentacleActivated?.Invoke(this);
             _animator.SetTrigger(triggerAnimationTriggerKey);
             _animator.SetBool(isAttackAnimationKey, true);
+            _killTriggerTransform.localPosition += Vector3.up * 2.2f;
             yield return new WaitForSeconds(_activationDelay);
 
             CurrentState = TentacleState.ATTACK;
@@ -183,7 +190,8 @@ namespace Prototype.Boss
             _bodyStepMover.SetActiveMove(true);
 
             yield return new WaitForEndOfFrame();
-            
+
+            _killTriggerTransform.localPosition = _basicKillTrigerLocalPos;
             
             while (!isProcessDone)
             {

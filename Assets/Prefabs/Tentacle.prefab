@@ -63,6 +63,7 @@ MonoBehaviour:
   _autoattackTimeSecondsMin: 0.5
   _currentState: 0
   _animator: {fileID: 6857577570107479287}
+  _killTriggerTransform: {fileID: 2473008852351725601}
 --- !u!114 &8484266907994847312
 MonoBehaviour:
   m_ObjectHideFlags: 0
