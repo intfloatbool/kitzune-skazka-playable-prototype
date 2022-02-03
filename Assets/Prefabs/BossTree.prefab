@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxScaleY: 1.5
-  _minScaleY: 0
+  _minScaleY: 0.3
   _speed: 2
   _speedIncreaseByTentacleEaten: 2
 --- !u!1 &1896443479916840527
@@ -1233,7 +1233,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.9, y: 2.3}
+  m_Size: {x: 2.05, y: 2.3}
   m_EdgeRadius: 0
 --- !u!114 &4410635859849750396
 MonoBehaviour:
@@ -1361,7 +1361,7 @@ MonoBehaviour:
   _isForY: 1
   _isForZ: 0
   _sprites:
-  - scale: 0.25
+  - scale: 0.3
     sprite: {fileID: 6841672869620397852, guid: 494656647c151284a9e74a328aeb65cb, type: 3}
   - scale: 0.5
     sprite: {fileID: -3710594431024816378, guid: aba3fb44a7dfe7f4f971e26f998c5e5d, type: 3}
