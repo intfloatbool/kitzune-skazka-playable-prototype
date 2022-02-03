@@ -190,11 +190,13 @@ namespace Prototype.Boss
             _bodyStepMover.SetActiveMove(true);
 
             yield return new WaitForEndOfFrame();
-
-            _killTriggerTransform.localPosition = _basicKillTrigerLocalPos;
+            
             
             while (!isProcessDone)
             {
+                _killTriggerTransform.localPosition = Vector3.MoveTowards(_killTriggerTransform.localPosition,
+                    _basicKillTrigerLocalPos, 2 * Time.deltaTime);
+                
                 if (_bossTree && _bossTree.IsBossStopped)
                 {
                     _animator.SetBool(isAttackAnimationKey, false);
@@ -209,6 +211,8 @@ namespace Prototype.Boss
                 yield return null;
             }
 
+            _killTriggerTransform.localPosition = _basicKillTrigerLocalPos;
+            
             _animator.SetBool(isAttackAnimationKey, false);
             _bodyStepMover.SetActiveMove(false);
 
