@@ -24,5 +24,7 @@ MonoBehaviour:
     _value: -7.9
   - _nameKey: PLAYER_BORDER_MAX_Y
     _value: 6.5
-  m_boolValues: []
+  m_boolValues:
+  - _nameKey: IS_CHEAT_MODE
+    _value: 1
   m_colorValues: []
