@@ -190,12 +190,14 @@ namespace Prototype.Boss
             _bodyStepMover.SetActiveMove(true);
 
             yield return new WaitForEndOfFrame();
-            
+
+            Vector3 endPointForKillerTriggerLocalPos = _basicKillTrigerLocalPos;
+            endPointForKillerTriggerLocalPos.y = 0f;
             
             while (!isProcessDone)
             {
                 _killTriggerTransform.localPosition = Vector3.MoveTowards(_killTriggerTransform.localPosition,
-                    _basicKillTrigerLocalPos, 2 * Time.deltaTime);
+                    endPointForKillerTriggerLocalPos, 10 * Time.deltaTime);
                 
                 if (_bossTree && _bossTree.IsBossStopped)
                 {
