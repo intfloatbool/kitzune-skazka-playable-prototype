@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using Prototype.Player;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -48,7 +49,7 @@ namespace Prototype.Boss
         [Header("Runtime")] 
         [SerializeField] private TentacleState _currentState;
 
-        [SerializeField] private Animator _animator;
+        [SerializeField] private List<Animator> _animators;
 
         private readonly string isAttackAnimationKey = "isAttack";
         private readonly string triggerAnimationTriggerKey = "trigger";
@@ -174,8 +175,12 @@ namespace Prototype.Boss
         private IEnumerator TentacleProcessCoroutine()
         {
             OnTentacleActivated?.Invoke(this);
-            _animator.SetTrigger(triggerAnimationTriggerKey);
-            _animator.SetBool(isAttackAnimationKey, true);
+            _animators.ForEach(a =>
+            {
+                a.SetTrigger(triggerAnimationTriggerKey);
+                a.SetBool(isAttackAnimationKey, true);
+            });
+       
             _killTriggerTransform.localPosition += Vector3.up * 2.2f;
             yield return new WaitForSeconds(_activationDelay);
 
@@ -201,7 +206,11 @@ namespace Prototype.Boss
                 
                 if (_bossTree && _bossTree.IsBossStopped)
                 {
-                    _animator.SetBool(isAttackAnimationKey, false);
+                    _animators.ForEach(a =>
+                    {
+                        a.SetBool(isAttackAnimationKey, false);
+                    });
+                    
                     RestMove();
                 }
                 
@@ -214,8 +223,12 @@ namespace Prototype.Boss
             }
 
             _killTriggerTransform.localPosition = _basicKillTrigerLocalPos;
+
+            _animators.ForEach(a =>
+            {
+                a.SetBool(isAttackAnimationKey, false);
+            });
             
-            _animator.SetBool(isAttackAnimationKey, false);
             _bodyStepMover.SetActiveMove(false);
 
             _autoattackTimer = 0f;
