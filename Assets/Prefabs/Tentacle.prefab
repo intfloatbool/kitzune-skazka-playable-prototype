@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2473008850942984478}
   - component: {fileID: 2473008850942984477}
-  - component: {fileID: 8484266907994847312}
   - component: {fileID: 4028957116756473334}
   m_Layer: 0
   m_Name: Tentacle
@@ -64,23 +63,6 @@ MonoBehaviour:
   _currentState: 0
   _animator: {fileID: 6857577570107479287}
   _killTriggerTransform: {fileID: 2473008852351725601}
---- !u!114 &8484266907994847312
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2473008850942984479}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e77e72af75e545d9b612bf9012d205f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _sprites:
-  - {fileID: 9179284777298533159}
-  _activateColor: {r: 0.83137256, g: 0.30287522, b: 0.027450997, a: 1}
-  _deactivateColor: {r: 1, g: 1, b: 1, a: 1}
-  _tentacle: {fileID: 2473008850942984477}
 --- !u!114 &4028957116756473334
 MonoBehaviour:
   m_ObjectHideFlags: 0
