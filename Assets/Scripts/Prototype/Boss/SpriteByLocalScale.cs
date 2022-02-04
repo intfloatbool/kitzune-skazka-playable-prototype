@@ -23,8 +23,21 @@ namespace Prototype.Boss
         [Header("Order is matter!")]
         [SerializeField] private SpriteByScale[] _sprites;
 
+        [Space]
+        [SerializeField] private float _minScale = 0.3f;
+        [SerializeField] private float _maxScale = 1.5f;
+        [SerializeField] private AnimationClip _animationClip;
+
+        private void Start()
+        {
+            var reversed = _sprites.ToList();
+            reversed.Reverse();
+            _sprites = reversed.ToArray();
+        }
+
         private void Update()
         {
+            
             float targetScale = 0f;
             if (_isForX)
             {
@@ -41,12 +54,15 @@ namespace Prototype.Boss
                 targetScale = _target.localScale.z;
             }
 
+            float normalizedScale = (targetScale - _minScale) / (_maxScale - _minScale);
+            Debug.LogWarning("CurrentScale: " + normalizedScale);
+            
             SpriteByScale targetSprite = null;
 
             for (int i = 0; i < _sprites.Length; i++)
             {
                 var spriteByScale = _sprites[i];
-                if (Mathf.Approximately(targetScale, spriteByScale.scale) || spriteByScale.scale >= targetScale)
+                if (Mathf.Approximately(targetScale, spriteByScale.scale) || spriteByScale.scale <= targetScale)
                 {
                     targetSprite = spriteByScale;
                     break;
