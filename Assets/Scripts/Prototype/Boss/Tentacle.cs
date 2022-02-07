@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using Prototype.Player;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -184,8 +185,9 @@ namespace Prototype.Boss
                 a.SetTrigger(triggerAnimationTriggerKey);
                 a.SetBool(isAttackAnimationKey, true);
             });
-       
-            _killTriggerTransform.localPosition += Vector3.up * 2.2f;
+
+            var newKillerTriggerPos = Vector3.up * 2.2f;
+            _killTriggerTransform.DOLocalMove(newKillerTriggerPos, _activationDelay);
             yield return new WaitForSeconds(_activationDelay);
 
             CurrentState = TentacleState.ATTACK;
