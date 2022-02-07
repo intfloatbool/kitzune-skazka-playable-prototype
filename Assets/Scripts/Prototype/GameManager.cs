@@ -35,7 +35,7 @@ namespace Prototype
         [SerializeField] private GameState _startGameState;
 
         [SerializeField] private DynamicObjectsController _dynamicObjectsController;
-
+        [SerializeField] private float _delayBeforeLose = 2f;
 
         private void Awake()
         {
@@ -118,6 +118,11 @@ namespace Prototype
         }
 
         public void GameLose()
+        {
+            Invoke(nameof(GameLoseDelayed), _delayBeforeLose);
+        }
+
+        private void GameLoseDelayed()
         {
             DoGameAction(GameAction.TO_LOSE);
             OnGameLose?.Invoke();

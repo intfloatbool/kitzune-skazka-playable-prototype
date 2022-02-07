@@ -619,27 +619,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dynamicGameObjects:
-  - {fileID: 2473008851931547093}
-  - {fileID: 2473008851931547092}
-  - {fileID: 2335859191044717929}
-  - {fileID: 2335859191044717930}
-  - {fileID: 1889311461}
-  - {fileID: 1350787695}
-  - {fileID: 1350787694}
-  - {fileID: 1164047173}
-  - {fileID: 1164047172}
-  - {fileID: 1089149649}
-  - {fileID: 1089149648}
-  - {fileID: 1030661929}
-  - {fileID: 1030661928}
-  - {fileID: 685909980}
-  - {fileID: 685909979}
   - {fileID: 475949241}
   - {fileID: 653537729}
+  - {fileID: 685909979}
+  - {fileID: 685909980}
   - {fileID: 930628635}
+  - {fileID: 1030661928}
+  - {fileID: 1030661929}
+  - {fileID: 1089149648}
+  - {fileID: 1089149649}
+  - {fileID: 1164047172}
+  - {fileID: 1164047173}
   - {fileID: 1320140823}
+  - {fileID: 1350787694}
+  - {fileID: 1350787695}
   - {fileID: 1864252127}
+  - {fileID: 1889311461}
   - {fileID: 1904397251}
+  - {fileID: 2335859191044717929}
+  - {fileID: 2335859191044717930}
+  - {fileID: 2473008851931547092}
+  - {fileID: 2473008851931547093}
 --- !u!114 &1003452073 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 24749839167975740, guid: 75a18f61b595d224f933c54a25d41290, type: 3}
@@ -1338,11 +1338,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1265713192 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6664882249642179775, guid: 0e8ba35409ac28f449f3a91362eef274, type: 3}
-  m_PrefabInstance: {fileID: 1722218699593213354}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1281709464
 GameObject:
   m_ObjectHideFlags: 0
@@ -1610,10 +1605,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1265713192}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1522495732}
+        m_TargetAssemblyTypeName: Prototype.GameManager, Assembly-CSharp
+        m_MethodName: PauseGame
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1621,18 +1616,6 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1722218699593213355}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
         m_CallState: 2
   _onGameWinEv:
     m_PersistentCalls:
@@ -1666,6 +1649,7 @@ MonoBehaviour:
         m_CallState: 2
   _startGameState: 1
   _dynamicObjectsController: {fileID: 980996698}
+  _delayBeforeLose: 2
 --- !u!1 &1568076890
 GameObject:
   m_ObjectHideFlags: 0
@@ -2216,11 +2200,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e8ba35409ac28f449f3a91362eef274, type: 3}
---- !u!1 &1722218699593213355 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7552184686575352148, guid: 0e8ba35409ac28f449f3a91362eef274, type: 3}
-  m_PrefabInstance: {fileID: 1722218699593213354}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1867690987650408035
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -17,8 +17,14 @@ namespace Prototype.Player
         [Space(10f)]
         [SerializeField] private bool _isPlayerImmortal;
 
+        [SerializeField] private GameObject _normalBody;
+        [SerializeField] private GameObject _deadBody;
+
         private void Start()
         {
+            _normalBody.SetActive(true);
+            _deadBody.SetActive(false);
+            
             OnPlayerCreated?.Invoke(this);
         }
 
@@ -38,6 +44,9 @@ namespace Prototype.Player
             Debug.Log("<color=red>PLAYER DEAD.</color>");
             _onDead?.Invoke();
             OnDead?.Invoke();
+            
+            _normalBody.SetActive(false);
+            _deadBody.SetActive(true);
             _isDead = true;
         }
     }

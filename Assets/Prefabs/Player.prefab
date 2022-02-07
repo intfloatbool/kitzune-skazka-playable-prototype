@@ -609,6 +609,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   _isPlayerImmortal: 0
+  _normalBody: {fileID: 6664882249642179775}
+  _deadBody: {fileID: 7552184686575352148}
 --- !u!114 &7378017328685681537
 MonoBehaviour:
   m_ObjectHideFlags: 0
