@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 
 namespace Prototype.Boss
 {
-    public class Tentacle : MonoBehaviour
+    public class Tentacle : DynamicGameObject
     {
         public enum TentacleState
         {
@@ -82,7 +82,7 @@ namespace Prototype.Boss
         public bool IsActiveAutoAttack { get; set; } = false;
 
         private BossTree _bossTree;
-        
+
         private void Awake()
         {
             _activateTrigger.OnTriggerCallback = OnActivateTriggerEnter;
@@ -161,6 +161,10 @@ namespace Prototype.Boss
 
         public void StartAttack()
         {
+            if (!_isActive)
+            {
+                return;
+            }
             if(_bossTree && _bossTree.IsBossStopped)
                 return;
             
@@ -192,7 +196,7 @@ namespace Prototype.Boss
                 isProcessDone = true;
             };
             _bodyStepMover.ResetMover();
-            _bodyStepMover.SetActiveMove(true);
+            _bodyStepMover.SetActive(true);
 
             yield return new WaitForEndOfFrame();
 
@@ -203,6 +207,11 @@ namespace Prototype.Boss
             {
                 _killTriggerTransform.localPosition = Vector3.MoveTowards(_killTriggerTransform.localPosition,
                     endPointForKillerTriggerLocalPos, 10 * Time.deltaTime);
+                
+                if (!_isActive)
+                {
+                    break;
+                }
                 
                 if (_bossTree && _bossTree.IsBossStopped)
                 {
@@ -229,7 +238,7 @@ namespace Prototype.Boss
                 a.SetBool(isAttackAnimationKey, false);
             });
             
-            _bodyStepMover.SetActiveMove(false);
+            _bodyStepMover.SetActive(false);
 
             _autoattackTimer = 0f;
             _activationCoroutine = null;
@@ -258,6 +267,19 @@ namespace Prototype.Boss
             }
 
             _autoattackTimer += Time.deltaTime;
+        }
+
+        public override void SetActive(bool isActive)
+        {
+            base.SetActive(isActive);
+
+            foreach (var animator in _animators)
+            {
+                if (animator)
+                {
+                    animator.enabled = isActive;
+                }
+            }
         }
     }
 }

@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Prototype.Boss
 {
-    public class BossTree : MonoBehaviour
+    public class BossTree : DynamicGameObject
     {
         
         [System.Serializable]
@@ -27,18 +27,20 @@ namespace Prototype.Boss
         private int _speedUpCount;
 
         public bool IsBossStopped { get; private set; }
+
+        [SerializeField] private Animator[] _animators;
         
         private void Start()
         {
             _stepMover.ResetMover();
-            _stepMover.SetActiveMove(true);
+            _stepMover.SetActive(true);
             
             _throatCollider.OnTentacleEatenCallback = OnTentacleEatenCallback;
         }
 
         private void ResumeMove()
         {
-            _stepMover.SetActiveMove(true);
+            _stepMover.SetActive(true);
             IsBossStopped = false;
         }
 
@@ -48,7 +50,7 @@ namespace Prototype.Boss
             {
                 _stepMover.SetCurrentMoveDataIndex(0);   
             }
-            _stepMover.SetActiveMove(false);
+            _stepMover.SetActive(false);
             IsBossStopped = true;
             Invoke(nameof(ResumeMove), _pauseMoveBetweenEatDelay);
             
@@ -81,6 +83,19 @@ namespace Prototype.Boss
                 }
 
                 _tentaclesEatenCount = 0;
+            }
+        }
+
+        public override void SetActive(bool isActive)
+        {
+            base.SetActive(isActive);
+
+            foreach (var animator in _animators)
+            {
+                if (animator)
+                {
+                    animator.enabled = isActive;   
+                }
             }
         }
     }

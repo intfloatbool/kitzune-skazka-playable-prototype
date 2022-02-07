@@ -33,7 +33,9 @@ namespace Prototype
 
         [Space]
         [SerializeField] private GameState _startGameState;
-        
+
+        [SerializeField] private DynamicObjectsController _dynamicObjectsController;
+
 
         private void Awake()
         {
@@ -124,7 +126,7 @@ namespace Prototype
 
         public void PauseGame()
         {
-            GameHelper.SetTimeScale(0f);
+            _dynamicObjectsController.SetActiveAll(false);
         }
 
         public void GameResume()

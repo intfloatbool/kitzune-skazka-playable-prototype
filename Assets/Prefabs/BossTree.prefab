@@ -356,6 +356,9 @@ MonoBehaviour:
     TentacleCountToSpeedUp: 1
     SpeedUpBoostPerTentacle: 3
     MaxSpeedUpAmount: 6
+  _animators:
+  - {fileID: 7592384822877039847}
+  - {fileID: 17330596512013003}
 --- !u!114 &6099437501529243817
 MonoBehaviour:
   m_ObjectHideFlags: 0

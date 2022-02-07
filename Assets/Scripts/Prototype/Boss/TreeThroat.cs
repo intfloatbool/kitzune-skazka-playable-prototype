@@ -1,8 +1,9 @@
+using System;
 using UnityEngine;
 
 namespace Prototype.Boss
 {
-    public class TreeThroat : MonoBehaviour
+    public class TreeThroat : DynamicGameObject
     {
         
         private TentacleThroatCollider _throatCollider;
@@ -10,7 +11,8 @@ namespace Prototype.Boss
         [SerializeField] private float _animationSpeedIncreaseByTentacleEaten = 1f;
         [SerializeField] private Animator _animator;
         private readonly string speedKey = "Speed";
-
+        private float _basicSpeed;
+        
         private void Awake()
         {
             _throatCollider = FindObjectOfType<TentacleThroatCollider>();
@@ -22,6 +24,8 @@ namespace Prototype.Boss
             {
                 Debug.LogError("ThroatController is missing!");
             }
+
+            _basicSpeed = _animator.GetFloat(speedKey);
         }
 
         private void OnDestroy()
@@ -29,6 +33,14 @@ namespace Prototype.Boss
             if (_throatCollider)
             {
                 _throatCollider.OnTentacleEatenEv -= ThroatColliderOnTentacleEaten;
+            }
+        }
+
+        private void Update()
+        {
+            if (!_isActive)
+            {
+                _animator.SetFloat(speedKey, 0);
             }
         }
 

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Prototype
 {
-    public class TargetStepMover : MonoBehaviour
+    public class TargetStepMover : DynamicGameObject
     {
         [System.Serializable]
         public class MoveData
@@ -33,15 +33,18 @@ namespace Prototype
 
         private float _currentMoveDataTimer;
 
-        private bool _isActive;
-
         [SerializeField] private bool _isLocal;
 
         public void SetIsLocal(bool isLocal)
         {
             _isLocal = isLocal;
         }
-        
+
+        private void Awake()
+        {
+            _isActive = false;
+        }
+
         public Action OnLoopDoneCallback { get; set; }
         
         public void AddMoveData(MoveData moveData)
@@ -69,11 +72,6 @@ namespace Prototype
             _moveDataCollection = Array.Empty<MoveData>();
         }
         
-        public void SetActiveMove(bool isActive)
-        {
-            _isActive = isActive;
-        }
-
         public void ResetMover()
         {
             _currentMoveDataIndex = _startMoveIndex;

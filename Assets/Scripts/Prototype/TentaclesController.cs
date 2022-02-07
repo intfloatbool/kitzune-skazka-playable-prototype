@@ -189,7 +189,7 @@ namespace Prototype
                     Debug.LogError("Walker is missing!");
                 }
                 
-                tentacle.RootStepMover.SetActiveMove(false);
+                tentacle.RootStepMover.SetActive(false);
 
                 tentacle.transform.parent = nearestAnchor;
                 
