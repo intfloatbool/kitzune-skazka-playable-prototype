@@ -18,6 +18,13 @@ namespace Prototype.GameUI
         private void OnEnable()
         {
             GameHelper.SetTimeScale(0f);
+            
+            _continueButton.transform.GetChild(0).gameObject.SetActive(true);
+            _continueButton.transform.GetChild(1).gameObject.SetActive(false);
+            
+            _exitButton.transform.GetChild(0).gameObject.SetActive(true);
+            _exitButton.transform.GetChild(1).gameObject.SetActive(false);
+            
         }
 
         private void OnContinueClick()
