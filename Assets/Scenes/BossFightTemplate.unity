@@ -1649,7 +1649,7 @@ MonoBehaviour:
         m_CallState: 2
   _startGameState: 1
   _dynamicObjectsController: {fileID: 980996698}
-  _delayBeforeLose: 2
+  _delayBeforeLose: 1.3
 --- !u!1 &1568076890
 GameObject:
   m_ObjectHideFlags: 0
