@@ -386,26 +386,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tentacle (5)
       objectReference: {fileID: 0}
-    - target: {fileID: 2473008851585946045, guid: 646cac6c9f368c84e897fc31981b1a6c, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.54083115
-      objectReference: {fileID: 0}
-    - target: {fileID: 2473008851585946045, guid: 646cac6c9f368c84e897fc31981b1a6c, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.8346906
-      objectReference: {fileID: 0}
-    - target: {fileID: 2473008851585946045, guid: 646cac6c9f368c84e897fc31981b1a6c, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.54083115
-      objectReference: {fileID: 0}
-    - target: {fileID: 2473008851585946045, guid: 646cac6c9f368c84e897fc31981b1a6c, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.08
-      objectReference: {fileID: 0}
-    - target: {fileID: 2473008851585946045, guid: 646cac6c9f368c84e897fc31981b1a6c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.14
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 646cac6c9f368c84e897fc31981b1a6c, type: 3}
 --- !u!4 &685909978 stripped
@@ -650,26 +630,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tentacle (3)
       objectReference: {fileID: 0}
-    - target: {fileID: 2473008851585946045, guid: 646cac6c9f368c84e897fc31981b1a6c, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.54083115
-      objectReference: {fileID: 0}
-    - target: {fileID: 2473008851585946045, guid: 646cac6c9f368c84e897fc31981b1a6c, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.8346906
-      objectReference: {fileID: 0}
-    - target: {fileID: 2473008851585946045, guid: 646cac6c9f368c84e897fc31981b1a6c, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.54083115
-      objectReference: {fileID: 0}
-    - target: {fileID: 2473008851585946045, guid: 646cac6c9f368c84e897fc31981b1a6c, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.08
-      objectReference: {fileID: 0}
-    - target: {fileID: 2473008851585946045, guid: 646cac6c9f368c84e897fc31981b1a6c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.14
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 646cac6c9f368c84e897fc31981b1a6c, type: 3}
 --- !u!4 &1030661927 stripped
@@ -799,26 +759,6 @@ PrefabInstance:
     - target: {fileID: 2473008850942984479, guid: 646cac6c9f368c84e897fc31981b1a6c, type: 3}
       propertyPath: m_Name
       value: Tentacle (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 2473008851585946045, guid: 646cac6c9f368c84e897fc31981b1a6c, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.54083115
-      objectReference: {fileID: 0}
-    - target: {fileID: 2473008851585946045, guid: 646cac6c9f368c84e897fc31981b1a6c, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.8346906
-      objectReference: {fileID: 0}
-    - target: {fileID: 2473008851585946045, guid: 646cac6c9f368c84e897fc31981b1a6c, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.54083115
-      objectReference: {fileID: 0}
-    - target: {fileID: 2473008851585946045, guid: 646cac6c9f368c84e897fc31981b1a6c, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.08
-      objectReference: {fileID: 0}
-    - target: {fileID: 2473008851585946045, guid: 646cac6c9f368c84e897fc31981b1a6c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.14
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 646cac6c9f368c84e897fc31981b1a6c, type: 3}
@@ -1018,26 +958,6 @@ PrefabInstance:
     - target: {fileID: 2473008850942984479, guid: 646cac6c9f368c84e897fc31981b1a6c, type: 3}
       propertyPath: m_Name
       value: Tentacle (4)
-      objectReference: {fileID: 0}
-    - target: {fileID: 2473008851585946045, guid: 646cac6c9f368c84e897fc31981b1a6c, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.54083115
-      objectReference: {fileID: 0}
-    - target: {fileID: 2473008851585946045, guid: 646cac6c9f368c84e897fc31981b1a6c, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.8346906
-      objectReference: {fileID: 0}
-    - target: {fileID: 2473008851585946045, guid: 646cac6c9f368c84e897fc31981b1a6c, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.54083115
-      objectReference: {fileID: 0}
-    - target: {fileID: 2473008851585946045, guid: 646cac6c9f368c84e897fc31981b1a6c, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.08
-      objectReference: {fileID: 0}
-    - target: {fileID: 2473008851585946045, guid: 646cac6c9f368c84e897fc31981b1a6c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.14
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 646cac6c9f368c84e897fc31981b1a6c, type: 3}
@@ -1410,26 +1330,6 @@ PrefabInstance:
     - target: {fileID: 2473008850942984479, guid: 646cac6c9f368c84e897fc31981b1a6c, type: 3}
       propertyPath: m_Name
       value: Tentacle (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 2473008851585946045, guid: 646cac6c9f368c84e897fc31981b1a6c, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.54083115
-      objectReference: {fileID: 0}
-    - target: {fileID: 2473008851585946045, guid: 646cac6c9f368c84e897fc31981b1a6c, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.8346906
-      objectReference: {fileID: 0}
-    - target: {fileID: 2473008851585946045, guid: 646cac6c9f368c84e897fc31981b1a6c, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.54083115
-      objectReference: {fileID: 0}
-    - target: {fileID: 2473008851585946045, guid: 646cac6c9f368c84e897fc31981b1a6c, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.08
-      objectReference: {fileID: 0}
-    - target: {fileID: 2473008851585946045, guid: 646cac6c9f368c84e897fc31981b1a6c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.14
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 646cac6c9f368c84e897fc31981b1a6c, type: 3}
@@ -2535,26 +2435,6 @@ PrefabInstance:
     - target: {fileID: 2473008850942984479, guid: 646cac6c9f368c84e897fc31981b1a6c, type: 3}
       propertyPath: m_Name
       value: Tentacle
-      objectReference: {fileID: 0}
-    - target: {fileID: 2473008851585946045, guid: 646cac6c9f368c84e897fc31981b1a6c, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.54083115
-      objectReference: {fileID: 0}
-    - target: {fileID: 2473008851585946045, guid: 646cac6c9f368c84e897fc31981b1a6c, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.8346906
-      objectReference: {fileID: 0}
-    - target: {fileID: 2473008851585946045, guid: 646cac6c9f368c84e897fc31981b1a6c, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.54083115
-      objectReference: {fileID: 0}
-    - target: {fileID: 2473008851585946045, guid: 646cac6c9f368c84e897fc31981b1a6c, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.08
-      objectReference: {fileID: 0}
-    - target: {fileID: 2473008851585946045, guid: 646cac6c9f368c84e897fc31981b1a6c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.14
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 646cac6c9f368c84e897fc31981b1a6c, type: 3}
