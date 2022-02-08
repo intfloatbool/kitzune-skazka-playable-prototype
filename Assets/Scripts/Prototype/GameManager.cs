@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using GameplayConfigs;
 using Prototype.Player;
 using UnityEngine;
@@ -156,6 +157,17 @@ namespace Prototype
         public T StaticFindObjectOfType<T>() where T : Component
         {
             return FindObjectOfType<T>();
-        } 
+        }
+
+        public void StartCustomCoroutine(IEnumerator coroutine, Action onDone = null)
+        {
+            IEnumerator temp()
+            {
+                yield return StartCoroutine(coroutine);
+                onDone?.Invoke();
+            }
+            
+            StartCoroutine(temp());
+        }
     }
 }
