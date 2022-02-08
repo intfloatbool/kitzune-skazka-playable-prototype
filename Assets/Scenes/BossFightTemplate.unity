@@ -158,6 +158,51 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1722218699690668626, guid: 0e8ba35409ac28f449f3a91362eef274, type: 3}
   m_PrefabInstance: {fileID: 1722218699593213354}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &182387553
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 182387554}
+  - component: {fileID: 182387555}
+  m_Layer: 0
+  m_Name: TreeBossFightGameController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &182387554
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 182387553}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 878262921}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &182387555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 182387553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7928b15dcbc24b33828f29ba31a7635c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tentaclesController: {fileID: 1003452073}
+  _dynamicObjectsController: {fileID: 980996698}
 --- !u!1 &224658033
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,6 +285,80 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &295356984
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 295356985}
+  - component: {fileID: 295356986}
+  m_Layer: 0
+  m_Name: GameStatesController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &295356985
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 295356984}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 878262921}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &295356986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 295356984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa091a5b9240ec246addb0f44fcc946e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _lastStateName: 
+--- !u!1 &325887341
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 325887342}
+  m_Layer: 0
+  m_Name: lookat_tentacle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &325887342
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 325887341}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1281709465}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!114 &475949241 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2473008850942984477, guid: 646cac6c9f368c84e897fc31981b1a6c, type: 3}
@@ -528,6 +647,8 @@ Transform:
   - {fileID: 1174589256}
   - {fileID: 8627278261380694729}
   - {fileID: 980996697}
+  - {fileID: 295356985}
+  - {fileID: 182387554}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -542,6 +663,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb09032cd60dc2044b882496bc27387e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &937967822
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 937967823}
+  m_Layer: 0
+  m_Name: lookat_tentacle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &937967823
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 937967822}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1089983551}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!1 &965639184
 GameObject:
   m_ObjectHideFlags: 0
@@ -924,13 +1075,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1089983550}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 0.9106575, w: 0.4131621}
+  m_LocalPosition: {x: 9.1, y: -8.13, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 937967823}
   m_Father: {fileID: 1568076891}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 131.193}
 --- !u!114 &1089983552
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1363,13 +1515,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1281709464}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0.43652788, w: 0.89969075}
+  m_LocalPosition: {x: -9.03, y: 8.07, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 325887342}
   m_Father: {fileID: 1568076891}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -51.765}
 --- !u!114 &1281709466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1590,6 +1743,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gameValuesSo: {fileID: 11400000, guid: 74ea93615013d524697916affccfa390, type: 2}
+  _onGameStartedEv:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 182387555}
+        m_TargetAssemblyTypeName: Prototype.Boss.TreeBossFightGameController, Assembly-CSharp
+        m_MethodName: RunNextState
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _onPlayerDeadEv:
     m_PersistentCalls:
       m_Calls:
@@ -2775,6 +2943,34 @@ PrefabInstance:
       propertyPath: _tentaclesOnScene.Array.data[5]
       value: 
       objectReference: {fileID: 653537729}
+    - target: {fileID: 24749839167975740, guid: 75a18f61b595d224f933c54a25d41290, type: 3}
+      propertyPath: _onTentaclesBehaviourChangedEv.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 24749839167975740, guid: 75a18f61b595d224f933c54a25d41290, type: 3}
+      propertyPath: _onTentaclesBehaviourChangedEv.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 24749839167975740, guid: 75a18f61b595d224f933c54a25d41290, type: 3}
+      propertyPath: _onTentaclesBehaviourChangedEv.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 182387555}
+    - target: {fileID: 24749839167975740, guid: 75a18f61b595d224f933c54a25d41290, type: 3}
+      propertyPath: _onTentaclesBehaviourChangedEv.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 24749839167975740, guid: 75a18f61b595d224f933c54a25d41290, type: 3}
+      propertyPath: _onTentaclesBehaviourChangedEv.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RunNextState
+      objectReference: {fileID: 0}
+    - target: {fileID: 24749839167975740, guid: 75a18f61b595d224f933c54a25d41290, type: 3}
+      propertyPath: _onTentaclesBehaviourChangedEv.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Prototype.Boss.TreeBossFightGameController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 24749839167975740, guid: 75a18f61b595d224f933c54a25d41290, type: 3}
+      propertyPath: _onTentaclesBehaviourChangedEv.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3323586430846379954, guid: 75a18f61b595d224f933c54a25d41290, type: 3}
       propertyPath: m_RootOrder
       value: 2

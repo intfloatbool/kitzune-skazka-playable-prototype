@@ -113,10 +113,18 @@ namespace Prototype
             
             MoveLoop();
         }
-        
+
+        public override void SetActive(bool isActive)
+        {
+            base.SetActive(isActive);
+        }
+
 
         private void MoveLoop()
         {
+            if(_currentMoveData == null)
+                return;
+            
             if (!_isLocal)
             {
                 transform.position = Vector3.MoveTowards(transform.position, _currentMoveData.Position, _currentMoveData.Speed * Time.deltaTime);

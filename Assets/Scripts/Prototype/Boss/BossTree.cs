@@ -15,6 +15,7 @@ namespace Prototype.Boss
         
         [SerializeField] private TargetStepMover _stepMover;
         [SerializeField] private TentacleThroatCollider _throatCollider;
+        public TentacleThroatCollider ThroatCollider => _throatCollider;
 
         [Space] 
         [SerializeField] private float _pauseMoveBetweenEatDelay = 1f;
@@ -89,7 +90,8 @@ namespace Prototype.Boss
         public override void SetActive(bool isActive)
         {
             base.SetActive(isActive);
-
+            _stepMover.SetActive(isActive);
+            
             foreach (var animator in _animators)
             {
                 if (animator)

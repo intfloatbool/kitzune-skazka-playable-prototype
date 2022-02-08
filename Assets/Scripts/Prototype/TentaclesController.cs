@@ -5,6 +5,7 @@ using BezierSolution;
 using Common;
 using Prototype.Boss;
 using UnityEngine;
+using UnityEngine.Events;
 using Random = UnityEngine.Random;
 
 namespace Prototype
@@ -32,6 +33,11 @@ namespace Prototype
             new Dictionary<BezierWalkerWithSpeed, float>();
 
         private TentacleThroatCollider _treeThroat;
+        
+        [SerializeField] private UnityEvent _onTentaclesBehaviourChangedEv;
+        public event Action OnTentaclesBehaviourChanged;
+
+        public List<Tuple<Transform, Tentacle>> BehaviorChangedTentaclesList { get; private set; }
 
         private void OnValidate()
         {
@@ -174,10 +180,11 @@ namespace Prototype
 
         private void ChangeBehaviour()
         {
+            BehaviorChangedTentaclesList = new List<Tuple<Transform, Tentacle>>(2);
             foreach (var tentacle in _tempTentacles)
             {
                 Transform nearestAnchor = GetAnchorForTentacle(tentacle);
-                nearestAnchor.gameObject.SetActive(true);
+               
                 BezierWalkerWithSpeed walker = nearestAnchor.GetComponent<BezierWalkerWithSpeed>();
                 if (walker)
                 {
@@ -190,20 +197,17 @@ namespace Prototype
                 }
                 
                 tentacle.RootStepMover.SetActive(false);
-
-                tentacle.transform.parent = nearestAnchor;
                 
-                float offset = 5f;
-                tentacle.transform.localPosition = Vector3.right * offset;
-                tentacle.transform.localRotation = Quaternion.Euler(0,0,90);
-
-                tentacle.ResetBodyMoveData();
 
                 tentacle.OnTentacleActivated += TentacleOnTentacleActivated;
                 tentacle.OnTentacleDeactivated += TentacleOnTentacleDeactivated;
 
                 tentacle.IsActiveAutoAttack = true;
+                BehaviorChangedTentaclesList.Add(new Tuple<Transform, Tentacle>(nearestAnchor, tentacle));
             }
+            
+            _onTentaclesBehaviourChangedEv?.Invoke();
+            OnTentaclesBehaviourChanged?.Invoke();
         }
 
         private void SetAttackTargetForTentacle(Tentacle tentacle)

@@ -12,8 +12,15 @@ namespace Prototype
         
         public Action OnTentacleEatenCallback { get; set; }
 
-        public event Action OnTentacleEatenEv; 
+        private bool _isActive = true;
+        
+        public event Action OnTentacleEatenEv;
 
+        public void SetActive(bool isActive)
+        {
+            _isActive = isActive;
+        }
+        
         private void Start()
         {
             _currentTentacles = new LinkedList<Tentacle>(FindObjectsOfType<Tentacle>());
@@ -21,6 +28,9 @@ namespace Prototype
 
         protected override void OnTriggered(TriggerableObject triggerableObject, Collider2D collider)
         {
+            if(!_isActive)
+                return;
+            
             var tentacle = triggerableObject.GetComponentInParent<Tentacle>();
             if (tentacle)
             {

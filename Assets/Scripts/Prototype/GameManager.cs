@@ -18,6 +18,9 @@ namespace Prototype
 
         private FoxPlayer _lastPlayerInstance;
 
+        [SerializeField] private UnityEvent _onGameStartedEv;
+        public event Action OnGameStarted;
+        
         [SerializeField] private UnityEvent _onPlayerDeadEv;
         public event Action OnPlayerDeadEv;
         
@@ -56,6 +59,9 @@ namespace Prototype
         private void Start()
         {
             GameHelper.SetTimeScale(1f);
+            
+            _onGameStartedEv?.Invoke();
+            OnGameStarted?.Invoke();
         }
 
         public void DoGameAction(GameAction gameAction)
@@ -146,5 +152,10 @@ namespace Prototype
             
             FoxPlayer.OnPlayerCreated -= FoxPlayerOnOnPlayerCreated;
         }
+
+        public T StaticFindObjectOfType<T>() where T : Component
+        {
+            return FindObjectOfType<T>();
+        } 
     }
 }
