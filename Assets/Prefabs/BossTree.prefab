@@ -350,7 +350,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _stepMover: {fileID: 6099437501529243817}
   _throatCollider: {fileID: 187985835212935873}
-  _pauseMoveBetweenEatDelay: 1
+  _pauseMoveBetweenEatDelay: 1.1
   _isTreeResetTargetPositionWhenEatTentacle: 0
   _behaviourData:
     TentacleCountToSpeedUp: 1
