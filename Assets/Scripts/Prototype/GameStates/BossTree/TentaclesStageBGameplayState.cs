@@ -63,7 +63,7 @@ namespace Prototype.GameStates.BossTree
                 var anchor = kvp.Item1;
                 var tentacle = kvp.Item2;
                 
-                float offset = 1f;
+                float offset = 2f;
                 var targetAngle = 0f;
                 var targetWordPosition = anchor.position + (anchor.right * offset);
                 var targetAngles = anchor.GetChild(0).eulerAngles;
@@ -90,8 +90,8 @@ namespace Prototype.GameStates.BossTree
                 tentacle.transform.parent = anchor;
                 
                 float offset = 5f;
-                tentacle.transform.localPosition = Vector3.right * 1;
-                tentacle.transform.DOLocalMove(Vector3.right * offset, 0.5f);
+                tentacle.transform.localPosition = Vector3.right * 2;
+                tentacle.transform.DOLocalMove(Vector3.right * offset, 1f);
                 tentacle.transform.localRotation = Quaternion.Euler(0,0,90);
                 tentacle.ResetBodyMoveData();
                 

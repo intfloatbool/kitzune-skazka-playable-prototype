@@ -17,6 +17,11 @@ namespace BezierSolution
 
 		public override BezierSpline Spline { get { return spline; } }
 
+		public void SetSpeed(float newSpeed)
+		{
+			this.speed = newSpeed;
+		}
+		
 		public override float NormalizedT
 		{
 			get { return m_normalizedT; }
