@@ -12,6 +12,8 @@ namespace Prototype
         {
             _triggerCollider = GetComponent<TriggerCollider>();
             _triggerCollider.OnTriggerCallback = OnTriggerCallback;
+
+            _isActive = true;
         }
 
         private void OnTriggerCallback(TriggerableObject triggerable, Collider2D col2d)
