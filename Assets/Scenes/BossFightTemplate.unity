@@ -358,6 +358,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa091a5b9240ec246addb0f44fcc946e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _specificParams:
+  - stateName: TentaclesStageBGameplayState
+    parameters:
+    - key: treeShakeDuration
+      value: 1.1
+    - key: treeShakeStrength
+      value: 1
+    - key: treeShakeVibratio
+      value: 20
+    - key: treeShakeRandomness
+      value: 45
+    - key: treeShakeSnapping
+      value: true
+    - key: treeShakeFadeOut
+      value: false
   _lastStateName: 
 --- !u!1 &325887341
 GameObject:

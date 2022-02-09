@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Prototype.GameStates
@@ -8,6 +10,22 @@ namespace Prototype.GameStates
         
         private GameplayStateBase _currentState = new NullGameplayState();
 
+        [System.Serializable]
+        private class StateNameParams
+        {
+            public string stateName;
+            public KVP[] parameters;
+        }
+
+        [System.Serializable]
+        private class KVP
+        {
+            public string key;
+            public string value;
+        }
+
+        [SerializeField] private StateNameParams[] _specificParams;
+        
         [Space]
         [Header("Runtime")]
         [SerializeField] private string _lastStateName;
@@ -26,6 +44,21 @@ namespace Prototype.GameStates
         {
             _currentState.OnStateStopped();
             _currentState = state;
+
+            var specificParamsForState =
+                _specificParams.FirstOrDefault(p => p.stateName.Equals(state.GetType().Name));
+            if (specificParamsForState != null)
+            {
+                var paramsDict = new Dictionary<string, string>(specificParamsForState.parameters.Length);
+                foreach (var param in specificParamsForState.parameters)
+                {
+                    paramsDict.Add(param.key, param.value);
+                }
+                
+                _currentState.SetParams(paramsDict);
+            }
+            
+            
             _currentState.OnStateStarted();
             _lastStateName = state.GetType().FullName;
             Debug.Log($"[GameStatesController] state changed to: {_lastStateName}");

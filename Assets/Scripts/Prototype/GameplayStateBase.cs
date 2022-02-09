@@ -4,7 +4,7 @@ namespace Prototype
 {
     public abstract class GameplayStateBase
     {
-        private Dictionary<string, string> _parameters;
+        protected Dictionary<string, string> _parameters;
         public virtual void SetParams(Dictionary<string, string> parameters)
         {
             _parameters = parameters;

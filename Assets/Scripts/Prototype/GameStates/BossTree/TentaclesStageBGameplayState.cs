@@ -66,6 +66,20 @@ namespace Prototype.GameStates.BossTree
 
             var shakeStrength = Vector3.right * 1f;
             var treeBody = _bossTree.transform.GetChild(0);
+
+            float treeShakeDuration = 0f;
+            int treeShakeVibratio = 20;
+            int treeShakeRandomness = 45;
+            bool treeShakeSnapping = true;
+            bool treeShakeFadeOut = false;
+            
+
+            float.TryParse(_parameters["treeShakeDuration"], out treeShakeDuration);
+            int.TryParse(_parameters["treeShakeStrength"], out treeShakeVibratio);
+            int.TryParse(_parameters["treeShakeVibratio"], out treeShakeRandomness);
+            bool.TryParse(_parameters["treeShakeRandomness"], out treeShakeSnapping);
+            bool.TryParse(_parameters["treeShakeFadeOut"], out treeShakeFadeOut);
+            
             treeBody.DOShakePosition(1f, shakeStrength, 20, 45, true, false);
 
             yield return new WaitForSeconds(1f);
