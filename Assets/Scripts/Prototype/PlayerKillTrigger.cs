@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Prototype
 {
     [RequireComponent(typeof(TriggerCollider))]
-    public class PlayerKillTrigger : MonoBehaviour
+    public class PlayerKillTrigger : ActivateableBase
     {
         private TriggerCollider _triggerCollider;
 
@@ -16,6 +16,9 @@ namespace Prototype
 
         private void OnTriggerCallback(TriggerableObject triggerable, Collider2D col2d)
         {
+            if(!_isActive)
+                return;
+            
             if (triggerable.UnitType != UnitType.FOX_PLAYER)
                 return;
             var player = triggerable.GetComponent<FoxPlayer>();

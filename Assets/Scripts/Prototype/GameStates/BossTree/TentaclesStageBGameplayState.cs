@@ -37,6 +37,8 @@ namespace Prototype.GameStates.BossTree
             _treeThroat.SetActive(false);
             _bossTree.transform.DOMove(_bossTree.StartPosition, 2f);
 
+            var treeKillCollider = _bossTree.GetComponentInChildren<PlayerKillTrigger>();
+            treeKillCollider.SetActive(false);
             var playerSafePosition = GameObject.Find("PlayerSafePosition");
             
             _playerController.MainAnimator.gameObject.SetActive(false);
@@ -106,6 +108,7 @@ namespace Prototype.GameStates.BossTree
             _playerController.SetActive(true);
             _bossTree.ThroatCollider.SetActive(true);
             _treeThroat.SetActive(true);
+            treeKillCollider.SetActive(true);
             
             foreach (var kvp in _tentaclesController.BehaviorChangedTentaclesList)
             {
