@@ -65,7 +65,8 @@ namespace Prototype.GameStates.BossTree
             }
 
             var shakeStrength = Vector3.right * 1f;
-            _bossTree.transform.GetChild(0).DOShakePosition(3f, shakeStrength);
+            var treeBody = _bossTree.transform.GetChild(0);
+            treeBody.DOShakePosition(1f, shakeStrength, 20, 45, true, false);
 
             yield return new WaitForSeconds(1f);
             
