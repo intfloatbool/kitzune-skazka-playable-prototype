@@ -362,17 +362,17 @@ MonoBehaviour:
   - stateName: TentaclesStageBGameplayState
     parameters:
     - key: treeShakeDuration
-      value: 1.1
+      value: 4
     - key: treeShakeStrength
-      value: 1
+      value: 50
     - key: treeShakeVibratio
-      value: 20
+      value: 50
     - key: treeShakeRandomness
-      value: 45
+      value: 0
     - key: treeShakeSnapping
-      value: true
+      value: ' true'
     - key: treeShakeFadeOut
-      value: false
+      value: ' true'
   _lastStateName: 
 --- !u!1 &325887341
 GameObject:
