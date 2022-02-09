@@ -6,6 +6,9 @@ namespace Prototype.Player
     {
         [SerializeField] private InputController _inputController;
         [SerializeField] private Animator _animator;
+        public Animator MainAnimator => _animator;
+        [SerializeField] private Animator _moveAnimator;
+        public Animator MoveAnimator => _moveAnimator;
         
         [Range(0, 1f)]
         [SerializeField] private float _moveThreshold = 0.5f;

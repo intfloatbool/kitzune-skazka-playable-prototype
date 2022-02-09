@@ -37,6 +37,17 @@ namespace Prototype.GameStates.BossTree
             _treeThroat.SetActive(false);
             _bossTree.transform.DOMove(_bossTree.StartPosition, 2f);
 
+            var playerSafePosition = GameObject.Find("PlayerSafePosition");
+            
+            _playerController.MainAnimator.gameObject.SetActive(false);
+            _playerController.MoveAnimator.gameObject.SetActive(true);
+
+            _playerController.transform.DOMove(playerSafePosition.transform.position, 2f).onComplete = () =>
+            {
+                _playerController.MainAnimator.gameObject.SetActive(true);
+                _playerController.MoveAnimator.gameObject.SetActive(false);
+            };
+
             var spriteRenderer = _treeThroat.GetComponent<SpriteRenderer>();
             if (spriteRenderer)
             {
