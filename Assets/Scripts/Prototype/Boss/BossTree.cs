@@ -31,8 +31,11 @@ namespace Prototype.Boss
 
         [SerializeField] private Animator[] _animators;
         
+        public Vector3 StartPosition { get; private set; }
+        
         private void Start()
         {
+            StartPosition = transform.position;
             _stepMover.ResetMover();
             _stepMover.SetActive(true);
             

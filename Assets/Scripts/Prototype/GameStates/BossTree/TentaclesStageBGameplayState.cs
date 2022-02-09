@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using DG.Tweening;
+using Prototype.Boss;
 using Prototype.Player;
 using UnityEngine;
 
@@ -10,6 +11,7 @@ namespace Prototype.GameStates.BossTree
         private readonly TentaclesController _tentaclesController;
         private readonly Boss.BossTree _bossTree;
         private readonly PlayerController _playerController;
+        private readonly TreeThroat _treeThroat;
 
         public TentaclesStageBGameplayState(TentaclesController tentaclesController)
         {
@@ -17,6 +19,7 @@ namespace Prototype.GameStates.BossTree
             
             _bossTree = GameManager.Instance.StaticFindObjectOfType<Boss.BossTree>();
             _playerController = GameManager.Instance.StaticFindObjectOfType<PlayerController>();
+            _treeThroat = GameManager.Instance.StaticFindObjectOfType<TreeThroat>();
         }
 
         private bool _isDone = false;
@@ -31,7 +34,15 @@ namespace Prototype.GameStates.BossTree
             _bossTree.SetActive(false);
             _playerController.SetActive(false);
             _bossTree.ThroatCollider.SetActive(false);
-            
+            _treeThroat.SetActive(false);
+            _bossTree.transform.DOMove(_bossTree.StartPosition, 2f);
+
+            var spriteRenderer = _treeThroat.GetComponent<SpriteRenderer>();
+            if (spriteRenderer)
+            {
+                spriteRenderer.sprite = _treeThroat.Sprites[3];
+            }
+
             foreach (var kvp in _tentaclesController.BehaviorChangedTentaclesList)
             {
                 var anchor = kvp.Item1;
@@ -39,6 +50,9 @@ namespace Prototype.GameStates.BossTree
                 
                 tentacle.SetActive(false);
             }
+
+            var shakeStrength = Vector3.right * 1f;
+            _bossTree.transform.GetChild(0).DOShakePosition(3f, shakeStrength);
 
             yield return new WaitForSeconds(1f);
             
@@ -80,6 +94,7 @@ namespace Prototype.GameStates.BossTree
             _bossTree.SetActive(true);
             _playerController.SetActive(true);
             _bossTree.ThroatCollider.SetActive(true);
+            _treeThroat.SetActive(true);
             
             foreach (var kvp in _tentaclesController.BehaviorChangedTentaclesList)
             {

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Prototype.Boss
@@ -10,9 +11,12 @@ namespace Prototype.Boss
 
         [SerializeField] private float _animationSpeedIncreaseByTentacleEaten = 1f;
         [SerializeField] private Animator _animator;
-        private readonly string speedKey = "Speed";
-        private float _basicSpeed;
+        [SerializeField] private Sprite[] _sprites;
+        public Sprite[] Sprites => _sprites;
         
+        private readonly string speedKey = "Speed";
+        private float _lastSpeed;
+
         private void Awake()
         {
             _throatCollider = FindObjectOfType<TentacleThroatCollider>();
@@ -25,7 +29,7 @@ namespace Prototype.Boss
                 Debug.LogError("ThroatController is missing!");
             }
 
-            _basicSpeed = _animator.GetFloat(speedKey);
+            _lastSpeed = _animator.GetFloat(speedKey);
         }
 
         private void OnDestroy()
@@ -44,10 +48,21 @@ namespace Prototype.Boss
             }
         }
 
+        public override void SetActive(bool isActive)
+        {
+            base.SetActive(isActive);
+
+            if (_isActive)
+            {
+               _animator.SetFloat(speedKey, _lastSpeed); 
+            }
+        }
+
         private void ThroatColliderOnTentacleEaten()
         {
             var newSpeed = _animator.GetFloat(speedKey) + _animationSpeedIncreaseByTentacleEaten;
             _animator.SetFloat(speedKey, newSpeed);
+            _lastSpeed = newSpeed;
         }
         
     }
