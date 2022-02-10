@@ -33,6 +33,11 @@ namespace Prototype.Player
             _isPlayerImmortal = true;
         }
 
+        public void MakeMortal()
+        {
+            _isPlayerImmortal = false;
+        }
+
         public void Kill()
         {
             if(_isPlayerImmortal)

@@ -37,6 +37,9 @@ namespace Prototype.GameStates.BossTree
             _treeThroat.SetActive(false);
             _bossTree.transform.DOMove(_bossTree.StartPosition, 2f);
 
+            var foxPlayer = _playerController.GetComponent<FoxPlayer>();
+            foxPlayer.MakeImmortal();
+            
             var treeKillCollider = _bossTree.GetComponentInChildren<PlayerKillTrigger>();
             treeKillCollider.SetActive(false);
             var playerSafePosition = GameObject.Find("PlayerSafePosition");
@@ -119,6 +122,7 @@ namespace Prototype.GameStates.BossTree
             yield return new WaitForSeconds(1f);
             
             // Resume
+            foxPlayer.MakeMortal();
             _bossTree.SetActive(true);
             _playerController.SetActive(true);
             _bossTree.ThroatCollider.SetActive(true);

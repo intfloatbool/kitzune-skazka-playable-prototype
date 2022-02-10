@@ -1832,8 +1832,8 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1281709466}
         m_TargetAssemblyTypeName: BezierSolution.BezierWalkerWithSpeed, BezierSolution.Runtime
-        m_MethodName: SetSpeed
-        m_Mode: 4
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1844,8 +1844,8 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1089983552}
         m_TargetAssemblyTypeName: BezierSolution.BezierWalkerWithSpeed, BezierSolution.Runtime
-        m_MethodName: SetSpeed
-        m_Mode: 4
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

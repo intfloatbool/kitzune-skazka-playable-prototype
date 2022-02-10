@@ -40,8 +40,17 @@ namespace BezierSolution
 		private bool onPathCompletedCalledAt1 = false;
 		private bool onPathCompletedCalledAt0 = false;
 
+		private bool _isActive = true;
+		
+		public void SetActive(bool isActive)
+		{
+			_isActive = isActive;
+		}
+
 		private void Update()
 		{
+			if(!_isActive)
+				return;
 			Execute( Time.deltaTime );
 		}
 
