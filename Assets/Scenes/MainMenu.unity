@@ -504,7 +504,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40e182190a5b7584ab126351dcf8ae3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _nextSceneName: BossFightTemplate
+  _nextSceneName: VisualNovelScene
   _delayToActive: 3.6
 --- !u!1 &470731306
 GameObject:

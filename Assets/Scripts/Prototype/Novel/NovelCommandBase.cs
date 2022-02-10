@@ -16,11 +16,13 @@ namespace Prototype.Novel
          public virtual void Execute()
          {
              IsRunning = true;
+             
+             Debug.Log($"[Novel] Command with class {GetType().Name} Executed.");
          }
 
          public virtual void Stop()
          {
-             IsRunning = false;
+             Debug.Log($"[Novel] Command with class {GetType().Name} Stopped.");
          }
 
          public virtual void UpdateCommand()

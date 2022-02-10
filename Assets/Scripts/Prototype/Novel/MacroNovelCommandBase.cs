@@ -10,27 +10,41 @@ namespace Prototype.Novel
         public MacroNovelCommandBase(VisualNovelController novelController, params NovelCommandBase[] subCommands) : base(novelController)
         {
             _commandQueue = new Queue<NovelCommandBase>(subCommands);
-            RunNextCommand();
+        }
 
+        public override void Execute()
+        {
+            base.Execute();
+            RunNextCommand();
         }
 
         private void RunNextCommand()
         {
             if (_commandQueue.Count <= 0)
             {
-                Done();
+                IsRunning = false;
+                if (_currentCommand != null)
+                {
+                    _currentCommand.Stop();
+                    _currentCommand = null;
+                }
+                return;
+            }
+
+            if (_currentCommand != null)
+            {
+                _currentCommand.Stop();
             }
             _currentCommand = _commandQueue.Dequeue();
             _currentCommand.Execute();
         }
 
-        private void Done()
-        {
-            IsRunning = false;
-        }
-
         public override void UpdateCommand()
         {
+            if (!IsRunning)
+            {
+                return;
+            }
             base.UpdateCommand();
 
             if (_currentCommand != null)
@@ -39,7 +53,7 @@ namespace Prototype.Novel
 
                 if (!_currentCommand.IsRunning)
                 {
-                    
+                    RunNextCommand();
                 }
             }
         }
