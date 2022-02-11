@@ -59,11 +59,22 @@ namespace Prototype.Managers
             var tween = _fadingImage.DOColor(_fadeColor, _fadeTime);
             yield return new WaitForSeconds(_delayBeforeLoad);
             var asyncOp = SceneManager.LoadSceneAsync(sceneName);
+            asyncOp.allowSceneActivation = true;
+            
             while (!asyncOp.isDone)
+            {
+                
+                yield return null;
+            }
+
+            while (asyncOp.progress < 1f)
             {
                 yield return null;
             }
-            tween.Kill();
+
+            yield return new WaitForSeconds(_delayBeforeLoad);
+            _fadingImage.color = _fadeColor;
+            yield return new WaitForEndOfFrame();
             tween = _fadingImage.DOColor(hideColor, _fadeTime);
             tween.onComplete = () =>
             {
