@@ -15,10 +15,13 @@ namespace Prototype.Novel
         {
             if (_commandGameObjectsRoot)
             {
-                _commandGameObjects = _commandGameObjectsRoot.GetComponentsInChildren<Transform>(true)
-                    .Where(g => !g.transform.Equals(_commandGameObjectsRoot))
-                    .Select(t => t.gameObject)
-                    .ToArray();
+                var objectsList = new List<Transform>();
+                foreach (Transform child in _commandGameObjectsRoot)
+                {
+                    objectsList.Add(child);
+                }
+
+                _commandGameObjects = objectsList.Select(t => t.gameObject).ToArray();
             }
         }
 
@@ -34,6 +37,11 @@ namespace Prototype.Novel
                 if (go.TryGetComponent(out VideoPlayer videoPlayer))
                 {
                     commandsList.Add(new NovelVideoCommand(this, go));
+                }
+
+                if (go.TryGetComponent(out VisualNovelDialogue novelDialogue))
+                {
+                    commandsList.Add(new NovelDialogueCommand(this, novelDialogue));
                 }
             }
             
