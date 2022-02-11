@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using Prototype.GameScenes;
+using Prototype.Managers;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -40,7 +41,7 @@ namespace Prototype.GameUI
             
             if(_isTransitionStarted)
                 return;
-            GameScenesController.Instance.LoadSceneByName(_nextSceneName);
+            GameScenesSwitcher.LoadCustomScene(_nextSceneName);
             _isTransitionStarted = true;
         }
 

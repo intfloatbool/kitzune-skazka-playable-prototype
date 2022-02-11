@@ -1,4 +1,5 @@
 ﻿using System;
+using Prototype.Managers;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -24,7 +25,8 @@ namespace Prototype
         {
             if(_isClicked)
                 return;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            
+            GameScenesSwitcher.LoadCustomScene(SceneManager.GetActiveScene().name);
             _isClicked = true;
         }
 
