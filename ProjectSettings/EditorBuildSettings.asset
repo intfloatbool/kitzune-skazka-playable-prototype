@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/BossFightTemplate.unity
     guid: bb56be111d32f1942a0dc81b63b6f8fe
   - enabled: 1
+    path: Assets/Scenes/TutorBossFight.unity
+    guid: 6de0398068bce964bb862693ee0f0a68
+  - enabled: 1
     path: Assets/Scenes/NovelScenes/0_NovelScene.unity
     guid: 2f97dc9676cdabc4b8172a61f9f36ed2
   - enabled: 1

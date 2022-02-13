@@ -1,3 +1,4 @@
+using GameplayConfigs;
 using UnityEngine;
 
 namespace Prototype.Player
@@ -21,21 +22,23 @@ namespace Prototype.Player
         private Vector3 _lastPosition;
 
         private readonly string _speedAnimatorKey = "speed";
-        private readonly string _isMoveAnimatorKey = "isMove"; 
+        private readonly string _isMoveAnimatorKey = "isMove";
+
+        [SerializeField] private GameValuesSO _valuesProvider;
 
         private void Start()
         {
-            _moveSpeed = GameManager.ValuesProvider.GetFloat("PLAYER_MOVE_SPEED");
+            _moveSpeed = _valuesProvider.GetFloat("PLAYER_MOVE_SPEED");
 
             _maxMoveBorder = new Vector3(
-                GameManager.ValuesProvider.GetFloat("PLAYER_BORDER_MAX_X"),
-                GameManager.ValuesProvider.GetFloat("PLAYER_BORDER_MAX_Y"),
+                _valuesProvider.GetFloat("PLAYER_BORDER_MAX_X"),
+                _valuesProvider.GetFloat("PLAYER_BORDER_MAX_Y"),
                 0
             );
             
             _minMoveBorder = new Vector3(
-                GameManager.ValuesProvider.GetFloat("PLAYER_BORDER_MIN_X"),
-                GameManager.ValuesProvider.GetFloat("PLAYER_BORDER_MIN_Y"),
+                _valuesProvider.GetFloat("PLAYER_BORDER_MIN_X"),
+                _valuesProvider.GetFloat("PLAYER_BORDER_MIN_Y"),
                 0
             );
 

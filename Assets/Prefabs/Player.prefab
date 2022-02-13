@@ -549,6 +549,7 @@ MonoBehaviour:
   _animator: {fileID: 2257985347824340909}
   _moveAnimator: {fileID: 6740135381557001574}
   _moveThreshold: 0.5
+  _valuesProvider: {fileID: 11400000, guid: 74ea93615013d524697916affccfa390, type: 2}
 --- !u!50 &1722218699690668624
 Rigidbody2D:
   serializedVersion: 4
