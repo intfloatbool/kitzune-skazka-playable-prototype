@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Prototype.Boss;
+using Prototype.Managers;
 using UnityEngine;
 
 namespace Prototype
@@ -48,6 +49,8 @@ namespace Prototype
             tentacle.Kill();
             OnTentacleEatenCallback?.Invoke();
             OnTentacleEatenEv?.Invoke();
+            
+            SoundManager.PlaySound("tentacle_eaten");
         }
     }
 }

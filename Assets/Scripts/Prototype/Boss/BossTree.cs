@@ -1,3 +1,4 @@
+using Prototype.Managers;
 using UnityEngine;
 
 namespace Prototype.Boss
@@ -40,6 +41,11 @@ namespace Prototype.Boss
             _stepMover.SetActive(true);
             
             _throatCollider.OnTentacleEatenCallback = OnTentacleEatenCallback;
+
+
+            GameObject o;
+            (o = gameObject).AddComponent<AudioSource>();
+            SoundManager.PlayMusic("tree_screechy_ambience_loop", o, true);
         }
 
         private void ResumeMove()

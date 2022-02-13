@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using Prototype.Managers;
 using Prototype.Player;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -84,6 +85,8 @@ namespace Prototype.Boss
 
         private BossTree _bossTree;
 
+        public string AttackSoundName { get; set; } = string.Empty;
+
         private void Awake()
         {
             _activateTrigger.OnTriggerCallback = OnActivateTriggerEnter;
@@ -95,6 +98,8 @@ namespace Prototype.Boss
             _bossTree = FindObjectOfType<BossTree>();
 
             _basicKillTrigerLocalPos = _killTriggerTransform.localPosition;
+
+            gameObject.AddComponent<AudioSource>();
         }
 
         public void RestMove()
@@ -204,6 +209,11 @@ namespace Prototype.Boss
 
             Vector3 endPointForKillerTriggerLocalPos = _basicKillTrigerLocalPos;
             endPointForKillerTriggerLocalPos.y = 0f;
+
+            if (!string.IsNullOrEmpty(AttackSoundName))
+            {
+                SoundManager.PlaySound(AttackSoundName, gameObject);
+            }
             
             while (!isProcessDone)
             {

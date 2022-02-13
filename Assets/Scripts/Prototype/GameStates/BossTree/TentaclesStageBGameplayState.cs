@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using DG.Tweening;
 using Prototype.Boss;
+using Prototype.Managers;
 using Prototype.Player;
 using UnityEngine;
 
@@ -12,18 +13,21 @@ namespace Prototype.GameStates.BossTree
         private readonly Boss.BossTree _bossTree;
         private readonly PlayerController _playerController;
         private readonly TreeThroat _treeThroat;
+        
+        private bool _isDone = false;
+        private readonly TreeBossFightGameController _bossFightController;
 
-        public TentaclesStageBGameplayState(TentaclesController tentaclesController)
+        public TentaclesStageBGameplayState(TreeBossFightGameController bossFightGameController,TentaclesController tentaclesController)
         {
             this._tentaclesController = tentaclesController;
-            
+
+            _bossFightController = bossFightGameController;
             _bossTree = GameManager.Instance.StaticFindObjectOfType<Boss.BossTree>();
             _playerController = GameManager.Instance.StaticFindObjectOfType<PlayerController>();
             _treeThroat = GameManager.Instance.StaticFindObjectOfType<TreeThroat>();
         }
-
-        private bool _isDone = false;
         
+
         public override void OnStateStarted()
         {
             GameManager.Instance.StartCustomCoroutine(AnimationCoroutine(), OnDone);  
@@ -31,6 +35,7 @@ namespace Prototype.GameStates.BossTree
 
         private IEnumerator AnimationCoroutine()
         {
+            SoundManager.PlayMusic("music_tree_boss_stage_2_loop", _bossFightController.gameObject, true);
             _bossTree.SetActive(false);
             _playerController.SetActive(false);
             _bossTree.ThroatCollider.SetActive(false);
@@ -46,6 +51,8 @@ namespace Prototype.GameStates.BossTree
             
             _playerController.MainAnimator.gameObject.SetActive(false);
             _playerController.MoveAnimator.gameObject.SetActive(true);
+            
+            SoundManager.PlaySound("tree_scream");
 
             _playerController.transform.DOMove(playerSafePosition.transform.position, 2f).onComplete = () =>
             {

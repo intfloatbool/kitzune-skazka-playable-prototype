@@ -1,4 +1,5 @@
 using System;
+using Prototype.Managers;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -53,6 +54,8 @@ namespace Prototype.Player
             _normalBody.SetActive(false);
             _deadBody.SetActive(true);
             _isDead = true;
+            
+            SoundManager.PlaySound("kitsune_death");
         }
     }
 }

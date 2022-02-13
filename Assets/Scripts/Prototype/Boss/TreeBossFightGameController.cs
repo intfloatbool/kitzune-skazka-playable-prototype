@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Prototype.GameStates;
 using Prototype.GameStates.BossTree;
+using Prototype.Managers;
 using UnityEngine;
 
 namespace Prototype.Boss
@@ -22,6 +23,10 @@ namespace Prototype.Boss
             }
 
             InitStatesQueue();
+
+            gameObject.AddComponent<AudioSource>();
+            
+            SoundManager.PlayMusic("music_tree_boss_stage_1_loop", gameObject, true);
         }
 
         private void InitStatesQueue()
@@ -29,7 +34,7 @@ namespace Prototype.Boss
             _statesQueue = new Queue<GameplayStateBase>(new GameplayStateBase[]
             {
                 new NullGameplayState(),
-                new TentaclesStageBGameplayState(_tentaclesController)
+                new TentaclesStageBGameplayState(this, _tentaclesController)
             });  
         }
 

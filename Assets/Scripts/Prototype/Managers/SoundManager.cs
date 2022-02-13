@@ -17,6 +17,16 @@ namespace Prototype.Managers
 
         public static SoundManager Instance { get; private set; }
 
+        public static void PlayMusic(string musicName, GameObject target = default, bool isLoop = false)
+        {
+            Instance.playMusic(musicName, target,isLoop);
+        }
+        
+        public static void PlaySound(string soundName, GameObject target = default)
+        {
+            Instance.playSound(soundName, target);
+        }
+        
         private void Awake()
         {
             if (!Instance)
@@ -31,7 +41,7 @@ namespace Prototype.Managers
             }
         }
 
-        public void PlayMusic(string musicName, GameObject target = default, bool isLoop = false)
+        public void playMusic(string musicName, GameObject target = default, bool isLoop = false)
         {
             var audioSource = _defaultMusicSource;
             if (target)
@@ -52,7 +62,7 @@ namespace Prototype.Managers
             } 
         }
 
-        public void PlaySound(string soundName, GameObject target = default)
+        public void playSound(string soundName, GameObject target = default)
         {
             var audioSource = _defaultSoundSource;
             if (target)

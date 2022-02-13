@@ -52,6 +52,7 @@ namespace Prototype
             _treeThroat = FindObjectOfType<TentacleThroatCollider>();
             _treeThroat.OnTentacleEatenEv += TreeThroatOnTentacleEatenEv;
         }
+        
 
         private void OnDestroy()
         {
@@ -61,6 +62,7 @@ namespace Prototype
 
         private void TreeThroatOnTentacleEatenEv()
         {
+            var increaseSpeedSoundName = "tentacle_attack_speed_increasedx2";
             foreach (var tentacle in _tempTentacles)
             {
                 var currentMoveDataCollection = tentacle.BodyStepMover.MoveDataCollection.ToList();
@@ -73,7 +75,9 @@ namespace Prototype
                     tentacle.SetSpeedInCollection(index, clone.Speed);
                     index++;
                 }
-                
+
+                tentacle.AttackSoundName = increaseSpeedSoundName;
+
             }
         }
 
@@ -93,6 +97,12 @@ namespace Prototype
             }
 
             _tentacleAnchorsQueue = new Queue<Transform>(tentacleAnchors);
+
+            var stageAAttackSoundName = "tentacle_attack_speed_normal"; 
+            foreach (var tentacle in _tempTentacles)
+            {
+                tentacle.AttackSoundName = stageAAttackSoundName;
+            }
         }
 
         private void OnStateChangedCallback(Tentacle tentacle, Tentacle.TentacleState tentacleState)
