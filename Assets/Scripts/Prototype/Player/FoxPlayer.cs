@@ -39,7 +39,7 @@ namespace Prototype.Player
             _isPlayerImmortal = false;
         }
 
-        public void Kill()
+        public virtual void Kill()
         {
             if(_isPlayerImmortal)
                 return;
