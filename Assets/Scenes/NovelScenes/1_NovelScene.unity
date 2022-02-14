@@ -396,7 +396,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29d4ac06605941c3aaaf4b5283ecf376, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sceneName: BossFightTemplate
+  _sceneName: TutorBossFight
   _onSceneStartInvoking:
     m_PersistentCalls:
       m_Calls:
