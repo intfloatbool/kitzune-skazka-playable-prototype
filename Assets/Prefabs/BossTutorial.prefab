@@ -514,6 +514,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2518530136910369049}
   - component: {fileID: 7241921986989886519}
+  - component: {fileID: 1297668601712636359}
   m_Layer: 0
   m_Name: BossTutorial
   m_TagString: Untagged
@@ -558,6 +559,27 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1297668601712636359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2518530136910369048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3c476fc5880d7b488266f1445efb3f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _eye: {fileID: 2518530136362493180}
+  _eyeDataCollection:
+  - localPos: {x: -1.3, y: -0.58, z: 0}
+    localScale: {x: 0.7, y: 0.7, z: 0.7}
+  - localPos: {x: 1.3, y: -0.58, z: 0}
+    localScale: {x: 0.7, y: 0.7, z: 0.7}
+  - localPos: {x: 0, y: -0.58, z: 0}
+    localScale: {x: 1, y: 1, z: 1}
+  _eyeChangeTime: 2
 --- !u!1 &2518530137171203906
 GameObject:
   m_ObjectHideFlags: 0
