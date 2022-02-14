@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Prototype.Boss
 {
-    public class TutorialBoss : MonoBehaviour
+    public class TutorialBoss : ActivateableBase
     {
         [System.Serializable]
         private class EyeData
@@ -31,6 +31,9 @@ namespace Prototype.Boss
 
         private void Update()
         {
+            if(!_isActive)
+                return;
+            
             _eyeChangeTimerLoop += Time.deltaTime;
             if (_eyeChangeTimerLoop > _eyeChangeTime)
             {
