@@ -1327,10 +1327,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 965639185}
     m_Modifications:
-    - target: {fileID: 2518530136571610838, guid: ee80fffb04c0d2d408781868710ab094, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 4.41
-      objectReference: {fileID: 0}
     - target: {fileID: 2518530136910369048, guid: ee80fffb04c0d2d408781868710ab094, type: 3}
       propertyPath: m_Name
       value: BossTutorial
@@ -1378,14 +1374,6 @@ PrefabInstance:
     - target: {fileID: 2518530136910369049, guid: ee80fffb04c0d2d408781868710ab094, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2518530137171203907, guid: ee80fffb04c0d2d408781868710ab094, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 4.4099994
-      objectReference: {fileID: 0}
-    - target: {fileID: 7241921986989886519, guid: ee80fffb04c0d2d408781868710ab094, type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7420873207984611140, guid: ee80fffb04c0d2d408781868710ab094, type: 3}
       propertyPath: spline
