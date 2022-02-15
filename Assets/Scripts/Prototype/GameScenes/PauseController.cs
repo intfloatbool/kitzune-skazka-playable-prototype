@@ -9,12 +9,14 @@ namespace Prototype.GameScenes
         
         [SerializeField] private GameObject _pauseUi;
         [SerializeField] private KeyCode _keyToPause = KeyCode.Escape;
+        [SerializeField] private GameObject _controlsTutor;
         
         public bool IsActive { get; set; } = true;
         
         private void Awake()
         {
             _pauseUi.gameObject.SetActive(false);
+            _controlsTutor.gameObject.SetActive(false);
             if (!Instance)
             {
                 Instance = this;
@@ -33,6 +35,7 @@ namespace Prototype.GameScenes
             if (Input.GetKeyDown(_keyToPause))
             {
                 _pauseUi.gameObject.SetActive(true);
+                _controlsTutor.gameObject.SetActive(false);
             }
         }
     }

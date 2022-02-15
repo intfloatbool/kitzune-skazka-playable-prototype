@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using DG.Tweening;
+using Prototype.GameUI;
 using UnityEngine;
 
 namespace Prototype.Boss
@@ -17,6 +18,9 @@ namespace Prototype.Boss
         [SerializeField] private Transform _eye;
         [SerializeField] private EyeData[] _eyeDataCollection;
         [SerializeField] private float _eyeChangeTime = 2f;
+        [SerializeField] private Transform _soul;
+        public Transform Soul => _soul;
+        public Animator Animator { get; private set; }
 
         private float _eyeChangeTimerLoop;
 
@@ -24,6 +28,7 @@ namespace Prototype.Boss
 
         private void Awake()
         {
+            Animator = GetComponent<Animator>();
             var shuffled = new List<EyeData>(_eyeDataCollection);
             shuffled.Shuffle();
             _eyeDataStack = new Stack<EyeData>(shuffled);
