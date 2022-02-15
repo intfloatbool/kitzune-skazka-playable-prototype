@@ -264,6 +264,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sceneName: 1_NovelScene
+  _onSceneStartInvoking:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &172314182
 Transform:
   m_ObjectHideFlags: 0
@@ -278,6 +281,63 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &599518293
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3695788165167369544, guid: 3dcd37d7a9aa2d94fbd6548ee34aecb4, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3695788165167369544, guid: 3dcd37d7a9aa2d94fbd6548ee34aecb4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3695788165167369544, guid: 3dcd37d7a9aa2d94fbd6548ee34aecb4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3695788165167369544, guid: 3dcd37d7a9aa2d94fbd6548ee34aecb4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3695788165167369544, guid: 3dcd37d7a9aa2d94fbd6548ee34aecb4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3695788165167369544, guid: 3dcd37d7a9aa2d94fbd6548ee34aecb4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3695788165167369544, guid: 3dcd37d7a9aa2d94fbd6548ee34aecb4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3695788165167369544, guid: 3dcd37d7a9aa2d94fbd6548ee34aecb4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3695788165167369544, guid: 3dcd37d7a9aa2d94fbd6548ee34aecb4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3695788165167369544, guid: 3dcd37d7a9aa2d94fbd6548ee34aecb4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3695788165167369544, guid: 3dcd37d7a9aa2d94fbd6548ee34aecb4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3695788165167369591, guid: 3dcd37d7a9aa2d94fbd6548ee34aecb4, type: 3}
+      propertyPath: m_Name
+      value: FadeUI
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3dcd37d7a9aa2d94fbd6548ee34aecb4, type: 3}
 --- !u!1 &791728568
 GameObject:
   m_ObjectHideFlags: 0
@@ -360,17 +420,17 @@ MonoBehaviour:
   _onVideoEnd:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1577851898}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 172314181}
+        m_TargetAssemblyTypeName: Prototype.Common.MonoSceneLoadingInvoker, Assembly-CSharp
+        m_MethodName: InvokeSceneLoading
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
   _endDelay: 0.3
 --- !u!328 &1303922071
@@ -392,7 +452,7 @@ VideoPlayer:
   m_RenderMode: 1
   m_AspectRatio: 2
   m_DataSource: 0
-  m_PlaybackSpeed: 4
+  m_PlaybackSpeed: 1
   m_AudioOutputMode: 2
   m_TargetAudioSources:
   - {fileID: 0}

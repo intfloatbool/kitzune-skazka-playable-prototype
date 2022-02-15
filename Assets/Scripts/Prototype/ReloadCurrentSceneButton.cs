@@ -1,4 +1,5 @@
 ﻿using System;
+using Prototype.GameUI;
 using Prototype.Managers;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -14,9 +15,12 @@ namespace Prototype
 
         [SerializeField] private Color _activeColor;
         [SerializeField] private Color _disactiveColor;
+
+        private SceneEndUI _sceneEndUI;
         
         private void Awake()
-        { 
+        {
+            _sceneEndUI = FindObjectOfType<SceneEndUI>();
             _btn = GetComponent<Button>();
             _btn.onClick.AddListener(OnClick);
         }
@@ -26,6 +30,8 @@ namespace Prototype
             if(_isClicked)
                 return;
             
+            if(_sceneEndUI)
+                _sceneEndUI.StartHide();
             GameScenesSwitcher.LoadCustomScene(SceneManager.GetActiveScene().name);
             _isClicked = true;
         }

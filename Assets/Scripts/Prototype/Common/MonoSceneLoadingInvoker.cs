@@ -1,4 +1,6 @@
-﻿using Prototype.Managers;
+﻿using System;
+using Prototype.GameUI;
+using Prototype.Managers;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -12,11 +14,22 @@ namespace Prototype.Common
 
         [SerializeField] private UnityEvent _onSceneStartInvoking;
 
+        private SceneEndUI _sceneEndUI;
+
+        private void Awake()
+        {
+            _sceneEndUI = FindObjectOfType<SceneEndUI>();
+        }
+
         public void InvokeSceneLoading()
         {
             if(_isInvoked)
                 return;
 
+            if (_sceneEndUI)
+            {
+                _sceneEndUI.StartHide();
+            }
             GameScenesSwitcher.LoadCustomScene(_sceneName);
             _onSceneStartInvoking?.Invoke();
             
