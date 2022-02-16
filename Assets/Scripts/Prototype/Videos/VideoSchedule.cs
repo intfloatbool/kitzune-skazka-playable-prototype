@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Video;
@@ -9,17 +10,29 @@ namespace Prototype.Videos
 {
     public class VideoSchedule : MonoBehaviour
     {
+        [System.Serializable]
+        private class VideoData
+        {
+            public VideoPlayer Player;
+            public bool IsWaitingForInputAtEnd;
+            public bool IsWaitingForInputAllTime;
+        }
+        
         [SerializeField] private bool _isSetupByValidation = true;
         [SerializeField] private VideoClip[] _videoClips;
         [SerializeField] private VideoPlayer[] _videoPlayersCollection;
+
         private Queue<VideoPlayer> _playersQueue;
 
         [SerializeField] private bool _isPlayOnStart = true;
-
+        [SerializeField] private VideoData[] _videoDataCollection;
+        
         [Space]
         [SerializeField] private UnityEvent _onDone;
 
         [SerializeField] private float _forcePlayBackSpeed = 1f;
+
+        private Dictionary<string, VideoData> _videoDataDict;
 
         private void OnValidate()
         {
@@ -35,6 +48,11 @@ namespace Prototype.Videos
                     }
                 }
             }
+        }
+
+        private void Awake()
+        {
+            _videoDataDict = _videoDataCollection.ToDictionary(v => v.Player.clip.name);
         }
 
         private void Start()
@@ -57,16 +75,55 @@ namespace Prototype.Videos
                 var nextVideo = _playersQueue.Dequeue();
                 nextVideo.gameObject.SetActive(true);
                 nextVideo.Prepare();
+
+                VideoData videoData = default;
+                _videoDataDict.TryGetValue(nextVideo.clip.name, out videoData);
+                
                 while (!nextVideo.isPrepared)
                 {
                     yield return null;
                 }
                 
                 nextVideo.Play();
-                
-                while (nextVideo.isPlaying)
+
+                if (nextVideo.isLooping)
                 {
-                    yield return null;
+                    while (nextVideo.isPlaying)
+                    {
+                        if (CheckInput())
+                        {
+                            break;
+                        }
+                        yield return null;
+                    }
+                }
+                else
+                {
+                    while (nextVideo.isPlaying)
+                    {
+                        if (videoData != null && videoData.IsWaitingForInputAllTime)
+                        {
+                            while (!CheckInput())
+                            {
+                                if (nextVideo.isPaused)
+                                {
+                                    break;
+                                }
+                                yield return null;
+                            }
+                            break;
+                        }
+                        
+                        yield return null;
+                    }   
+                }
+
+                if (videoData != null && videoData.IsWaitingForInputAtEnd)
+                {
+                    while (!CheckInput())
+                    {
+                        yield return null;
+                    }
                 }
 
                 yield return new WaitForEndOfFrame();
@@ -76,5 +133,15 @@ namespace Prototype.Videos
             yield return new WaitForEndOfFrame();
             _onDone?.Invoke();
         }
+
+        private bool CheckInput()
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                return true;
+            }
+            return false;
+        }
     }
+    
 }

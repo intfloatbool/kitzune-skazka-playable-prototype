@@ -911,6 +911,13 @@ MonoBehaviour:
   - {fileID: 345596446}
   - {fileID: 670062090}
   _isPlayOnStart: 1
+  _videoDataCollection:
+  - Player: {fileID: 1303922071}
+    IsWaitingForInputAtEnd: 0
+    IsWaitingForInputAllTime: 1
+  - Player: {fileID: 1441277777}
+    IsWaitingForInputAtEnd: 1
+    IsWaitingForInputAllTime: 0
   _onDone:
     m_PersistentCalls:
       m_Calls:
@@ -926,7 +933,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _forcePlayBackSpeed: 1
+  _forcePlayBackSpeed: 3
 --- !u!1 &939996209
 GameObject:
   m_ObjectHideFlags: 0
