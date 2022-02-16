@@ -292,7 +292,7 @@ GameObject:
   - component: {fileID: 318352399}
   - component: {fileID: 318352398}
   m_Layer: 0
-  m_Name: VideoPlayer_0 (5)
+  m_Name: vPlayer_prologue_005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -358,7 +358,7 @@ GameObject:
   - component: {fileID: 345596447}
   - component: {fileID: 345596446}
   m_Layer: 0
-  m_Name: VideoPlayer_0 (19)
+  m_Name: vPlayer_prologue_017
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -424,7 +424,7 @@ GameObject:
   - component: {fileID: 379504065}
   - component: {fileID: 379504064}
   m_Layer: 0
-  m_Name: VideoPlayer_0 (9)
+  m_Name: vPlayer_prologue_008
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -479,6 +479,142 @@ Transform:
   m_Father: {fileID: 791728569}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &389881161
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 389881162}
+  - component: {fileID: 389881165}
+  - component: {fileID: 389881164}
+  - component: {fileID: 389881163}
+  - component: {fileID: 389881166}
+  m_Layer: 0
+  m_Name: Button
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &389881162
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 389881161}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.9993, y: 1.9993, z: 1.9993}
+  m_Children: []
+  m_Father: {fileID: 1625979382}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -163.4, y: 0}
+  m_SizeDelta: {x: 200.14, y: 89.602}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &389881163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 389881161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 389881164}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &389881164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 389881161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 6031332ce98188041b6ef3db5e5993f8, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &389881165
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 389881161}
+  m_CullTransparentMesh: 1
+--- !u!114 &389881166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 389881161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09f0376d4a7547859acae07da4929a64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _defaultColor: {r: 1, g: 1, b: 1, a: 1}
+  _hoverColor: {r: 0.96862745, g: 0.8117647, b: 0.27450982, a: 1}
+  _targetImage: {fileID: 389881164}
 --- !u!1001 &599518293
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -547,7 +683,7 @@ GameObject:
   - component: {fileID: 601781389}
   - component: {fileID: 601781388}
   m_Layer: 0
-  m_Name: VideoPlayer_0 (15)
+  m_Name: vPlayer_prologue_013
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -613,7 +749,7 @@ GameObject:
   - component: {fileID: 670062091}
   - component: {fileID: 670062090}
   m_Layer: 0
-  m_Name: VideoPlayer_0 (20)
+  m_Name: vPlayer_prologue_018
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -679,7 +815,7 @@ GameObject:
   - component: {fileID: 704360374}
   - component: {fileID: 704360373}
   m_Layer: 0
-  m_Name: VideoPlayer_0 (12)
+  m_Name: vPlayer_prologue_011_A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -745,7 +881,7 @@ GameObject:
   - component: {fileID: 730781064}
   - component: {fileID: 730781063}
   m_Layer: 0
-  m_Name: VideoPlayer_0 (11)
+  m_Name: vPlayer_prologue_010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -915,9 +1051,120 @@ MonoBehaviour:
   - Player: {fileID: 1303922071}
     IsWaitingForInputAtEnd: 0
     IsWaitingForInputAllTime: 1
+    ButtonToSkip: {fileID: 0}
+    OnVideoEnd:
+      m_PersistentCalls:
+        m_Calls: []
   - Player: {fileID: 1441277777}
     IsWaitingForInputAtEnd: 1
     IsWaitingForInputAllTime: 0
+    ButtonToSkip: {fileID: 0}
+    OnVideoEnd:
+      m_PersistentCalls:
+        m_Calls: []
+  - Player: {fileID: 939996210}
+    IsWaitingForInputAtEnd: 1
+    IsWaitingForInputAllTime: 0
+    ButtonToSkip: {fileID: 0}
+    OnVideoEnd:
+      m_PersistentCalls:
+        m_Calls: []
+  - Player: {fileID: 1968861530}
+    IsWaitingForInputAtEnd: 1
+    IsWaitingForInputAllTime: 0
+    ButtonToSkip: {fileID: 0}
+    OnVideoEnd:
+      m_PersistentCalls:
+        m_Calls: []
+  - Player: {fileID: 1221947637}
+    IsWaitingForInputAtEnd: 1
+    IsWaitingForInputAllTime: 0
+    ButtonToSkip: {fileID: 0}
+    OnVideoEnd:
+      m_PersistentCalls:
+        m_Calls: []
+  - Player: {fileID: 318352398}
+    IsWaitingForInputAtEnd: 1
+    IsWaitingForInputAllTime: 0
+    ButtonToSkip: {fileID: 0}
+    OnVideoEnd:
+      m_PersistentCalls:
+        m_Calls: []
+  - Player: {fileID: 1433494634}
+    IsWaitingForInputAtEnd: 1
+    IsWaitingForInputAllTime: 0
+    ButtonToSkip: {fileID: 0}
+    OnVideoEnd:
+      m_PersistentCalls:
+        m_Calls: []
+  - Player: {fileID: 1985861040}
+    IsWaitingForInputAtEnd: 1
+    IsWaitingForInputAllTime: 0
+    ButtonToSkip: {fileID: 0}
+    OnVideoEnd:
+      m_PersistentCalls:
+        m_Calls: []
+  - Player: {fileID: 379504064}
+    IsWaitingForInputAtEnd: 1
+    IsWaitingForInputAllTime: 0
+    ButtonToSkip: {fileID: 0}
+    OnVideoEnd:
+      m_PersistentCalls:
+        m_Calls: []
+  - Player: {fileID: 1754825438}
+    IsWaitingForInputAtEnd: 1
+    IsWaitingForInputAllTime: 0
+    ButtonToSkip: {fileID: 0}
+    OnVideoEnd:
+      m_PersistentCalls:
+        m_Calls: []
+  - Player: {fileID: 730781063}
+    IsWaitingForInputAtEnd: 1
+    IsWaitingForInputAllTime: 0
+    ButtonToSkip: {fileID: 0}
+    OnVideoEnd:
+      m_PersistentCalls:
+        m_Calls: []
+  - Player: {fileID: 944329537}
+    IsWaitingForInputAtEnd: 0
+    IsWaitingForInputAllTime: 0
+    ButtonToSkip: {fileID: 389881163}
+    OnVideoEnd:
+      m_PersistentCalls:
+        m_Calls: []
+  - Player: {fileID: 1397097001}
+    IsWaitingForInputAtEnd: 1
+    IsWaitingForInputAllTime: 0
+    ButtonToSkip: {fileID: 0}
+    OnVideoEnd:
+      m_PersistentCalls:
+        m_Calls: []
+  - Player: {fileID: 601781388}
+    IsWaitingForInputAtEnd: 1
+    IsWaitingForInputAllTime: 0
+    ButtonToSkip: {fileID: 0}
+    OnVideoEnd:
+      m_PersistentCalls:
+        m_Calls: []
+  - Player: {fileID: 1290231736}
+    IsWaitingForInputAtEnd: 0
+    IsWaitingForInputAllTime: 0
+    ButtonToSkip: {fileID: 1304655238}
+    OnVideoEnd:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1735951274}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: SetActive
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
   _onDone:
     m_PersistentCalls:
       m_Calls:
@@ -933,7 +1180,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _forcePlayBackSpeed: 3
+  _startFromIndex: 12
+  _forcePlayBackSpeed: 1
+  _playspeedByCheats: 3
 --- !u!1 &939996209
 GameObject:
   m_ObjectHideFlags: 0
@@ -945,7 +1194,7 @@ GameObject:
   - component: {fileID: 939996211}
   - component: {fileID: 939996210}
   m_Layer: 0
-  m_Name: VideoPlayer_0 (2)
+  m_Name: vPlayer_prologue_002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1011,7 +1260,7 @@ GameObject:
   - component: {fileID: 944329538}
   - component: {fileID: 944329537}
   m_Layer: 0
-  m_Name: VideoPlayer_0 (13)
+  m_Name: vPlayer_prologue_011_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1046,7 +1295,7 @@ VideoPlayer:
   m_ControlledAudioTrackCount: 0
   m_PlayOnAwake: 0
   m_SkipOnDrop: 0
-  m_Looping: 0
+  m_Looping: 1
   m_WaitForFirstFrame: 0
   m_FrameReadyEventEnabled: 0
   m_VideoShaders: []
@@ -1060,7 +1309,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1625979382}
   m_Father: {fileID: 791728569}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1075,7 +1325,7 @@ GameObject:
   - component: {fileID: 1132516871}
   - component: {fileID: 1132516870}
   m_Layer: 0
-  m_Name: VideoPlayer_0 (17)
+  m_Name: vPlayer_prologue_015
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1139,7 +1389,7 @@ GameObject:
   - component: {fileID: 1221947638}
   - component: {fileID: 1221947637}
   m_Layer: 0
-  m_Name: VideoPlayer_0 (4)
+  m_Name: vPlayer_prologue_004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1205,7 +1455,7 @@ GameObject:
   - component: {fileID: 1290231737}
   - component: {fileID: 1290231736}
   m_Layer: 0
-  m_Name: VideoPlayer_0 (16)
+  m_Name: vPlayer_prologue_014
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1256,7 +1506,8 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1735951278}
   m_Father: {fileID: 791728569}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1271,7 +1522,7 @@ GameObject:
   - component: {fileID: 1303922069}
   - component: {fileID: 1303922071}
   m_Layer: 0
-  m_Name: VideoPlayer_0
+  m_Name: vPlayer_prologue_000
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1326,6 +1577,142 @@ VideoPlayer:
   m_WaitForFirstFrame: 0
   m_FrameReadyEventEnabled: 0
   m_VideoShaders: []
+--- !u!1 &1304655235
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1304655236}
+  - component: {fileID: 1304655240}
+  - component: {fileID: 1304655239}
+  - component: {fileID: 1304655238}
+  - component: {fileID: 1304655237}
+  m_Layer: 0
+  m_Name: Button
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1304655236
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1304655235}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.9993, y: 1.9993, z: 1.9993}
+  m_Children: []
+  m_Father: {fileID: 1735951278}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 600, y: 19}
+  m_SizeDelta: {x: 200.14, y: 89.602}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1304655237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1304655235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09f0376d4a7547859acae07da4929a64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _defaultColor: {r: 1, g: 1, b: 1, a: 1}
+  _hoverColor: {r: 0.96862745, g: 0.8117647, b: 0.27450982, a: 1}
+  _targetImage: {fileID: 1304655239}
+--- !u!114 &1304655238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1304655235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1304655239}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &1304655239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1304655235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 0daaae7cb2813ed45a0742b6d3a96ca1, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1304655240
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1304655235}
+  m_CullTransparentMesh: 1
 --- !u!1 &1397097000
 GameObject:
   m_ObjectHideFlags: 0
@@ -1337,7 +1724,7 @@ GameObject:
   - component: {fileID: 1397097002}
   - component: {fileID: 1397097001}
   m_Layer: 0
-  m_Name: VideoPlayer_0 (14)
+  m_Name: vPlayer_prologue_012
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1403,7 +1790,7 @@ GameObject:
   - component: {fileID: 1433494635}
   - component: {fileID: 1433494634}
   m_Layer: 0
-  m_Name: VideoPlayer_0 (7)
+  m_Name: vPlayer_prologue_006_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1438,7 +1825,7 @@ VideoPlayer:
   m_ControlledAudioTrackCount: 0
   m_PlayOnAwake: 0
   m_SkipOnDrop: 0
-  m_Looping: 0
+  m_Looping: 1
   m_WaitForFirstFrame: 0
   m_FrameReadyEventEnabled: 0
   m_VideoShaders: []
@@ -1467,7 +1854,7 @@ GameObject:
   - component: {fileID: 1441277778}
   - component: {fileID: 1441277777}
   m_Layer: 0
-  m_Name: VideoPlayer_0 (1)
+  m_Name: vPlayer_prologue_001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1597,7 +1984,7 @@ GameObject:
   - component: {fileID: 1484424491}
   - component: {fileID: 1484424490}
   m_Layer: 0
-  m_Name: VideoPlayer_0 (18)
+  m_Name: vPlayer_prologue_016
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1652,6 +2039,106 @@ Transform:
   m_Father: {fileID: 791728569}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1625979381
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1625979382}
+  - component: {fileID: 1625979385}
+  - component: {fileID: 1625979384}
+  - component: {fileID: 1625979383}
+  m_Layer: 0
+  m_Name: Canvas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1625979382
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1625979381}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_Children:
+  - {fileID: 389881162}
+  m_Father: {fileID: 944329538}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
+--- !u!114 &1625979383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1625979381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &1625979384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1625979381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 1
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 0
+--- !u!223 &1625979385
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1625979381}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 0
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
 --- !u!1 &1645905928
 GameObject:
   m_ObjectHideFlags: 0
@@ -1735,6 +2222,106 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1735951274
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1735951278}
+  - component: {fileID: 1735951277}
+  - component: {fileID: 1735951276}
+  - component: {fileID: 1735951275}
+  m_Layer: 0
+  m_Name: Canvas (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1735951275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1735951274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &1735951276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1735951274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 1
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 0
+--- !u!223 &1735951277
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1735951274}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 0
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
+--- !u!224 &1735951278
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1735951274}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_Children:
+  - {fileID: 1304655236}
+  m_Father: {fileID: 1290231737}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
 --- !u!1 &1754825437
 GameObject:
   m_ObjectHideFlags: 0
@@ -1746,7 +2333,7 @@ GameObject:
   - component: {fileID: 1754825439}
   - component: {fileID: 1754825438}
   m_Layer: 0
-  m_Name: VideoPlayer_0 (10)
+  m_Name: vPlayer_prologue_009
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1856,7 +2443,7 @@ GameObject:
   - component: {fileID: 1847034577}
   - component: {fileID: 1847034576}
   m_Layer: 0
-  m_Name: VideoPlayer_0 (6)
+  m_Name: vPlayer_prologue_006_A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1922,7 +2509,7 @@ GameObject:
   - component: {fileID: 1968861531}
   - component: {fileID: 1968861530}
   m_Layer: 0
-  m_Name: VideoPlayer_0 (3)
+  m_Name: vPlayer_prologue_003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1988,7 +2575,7 @@ GameObject:
   - component: {fileID: 1985861041}
   - component: {fileID: 1985861040}
   m_Layer: 0
-  m_Name: VideoPlayer_0 (8)
+  m_Name: vPlayer_prologue_007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

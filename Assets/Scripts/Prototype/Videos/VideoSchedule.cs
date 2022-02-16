@@ -2,8 +2,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Prototype.Managers;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 using UnityEngine.Video;
 
 namespace Prototype.Videos
@@ -16,6 +18,9 @@ namespace Prototype.Videos
             public VideoPlayer Player;
             public bool IsWaitingForInputAtEnd;
             public bool IsWaitingForInputAllTime;
+
+            public Button ButtonToSkip;
+            public UnityEvent OnVideoEnd;
         }
         
         [SerializeField] private bool _isSetupByValidation = true;
@@ -30,9 +35,26 @@ namespace Prototype.Videos
         [Space]
         [SerializeField] private UnityEvent _onDone;
 
+        [SerializeField] private int _startFromIndex = 0;
         [SerializeField] private float _forcePlayBackSpeed = 1f;
+        [SerializeField] private float _playspeedByCheats = 3f;
 
         private Dictionary<string, VideoData> _videoDataDict;
+
+        private class ButtonSkipper
+        {
+            public bool IsClicked { get; private set; }
+            public ButtonSkipper(Button btn)
+            {
+                btn.onClick.AddListener(() =>
+                {
+                     if(IsClicked)
+                         return;
+
+                     IsClicked = true;
+                });
+            }
+        }
 
         private void OnValidate()
         {
@@ -46,17 +68,28 @@ namespace Prototype.Videos
                     {
                         videoPlayer.clip = _videoClips[i];
                     }
+
+                    if (videoPlayer)
+                    {
+                        videoPlayer.gameObject.name = $"vPlayer_{videoPlayer.clip.name}";
+                    }
                 }
             }
         }
 
         private void Awake()
         {
+            var collection = _videoDataCollection.ToArray();
             _videoDataDict = _videoDataCollection.ToDictionary(v => v.Player.clip.name);
         }
 
         private void Start()
         {
+            if(GlobalManager.IsCheatMode)
+            {
+                _forcePlayBackSpeed = _playspeedByCheats;
+            }
+            
             if (_isPlayOnStart)
                 StartCoroutine(PlayCoroutine());
         }
@@ -68,7 +101,22 @@ namespace Prototype.Videos
                 videoPlayer.playbackSpeed = _forcePlayBackSpeed;
                 videoPlayer.gameObject.SetActive(false);
             }
-            _playersQueue = new Queue<VideoPlayer>(_videoPlayersCollection);
+
+            var playerCollection = _videoPlayersCollection.ToArray();
+            if (_startFromIndex > 0)
+            {
+                var cuttedData = playerCollection.ToList();
+                for (int i = 0; i < _startFromIndex; i++)
+                {
+                    cuttedData[i] = null;
+                }
+
+                cuttedData.RemoveAll(c => c == null);
+                playerCollection = cuttedData.ToArray();
+
+            }
+            
+            _playersQueue = new Queue<VideoPlayer>(playerCollection);
 
             while (_playersQueue.Count > 0)
             {
@@ -88,12 +136,27 @@ namespace Prototype.Videos
 
                 if (nextVideo.isLooping)
                 {
+                    ButtonSkipper skipper = default;
+                    if (videoData != null && videoData.ButtonToSkip)
+                    {
+                        skipper = new ButtonSkipper(videoData.ButtonToSkip);
+                    }
+                    
                     while (nextVideo.isPlaying)
                     {
-                        if (CheckInput())
+                        if (skipper != null)
                         {
-                            break;
+                            if(skipper.IsClicked)
+                                break;
                         }
+                        else
+                        {
+                            if (CheckInput())
+                            {
+                                break;
+                            }
+                        }
+                        
                         yield return null;
                     }
                 }
@@ -118,6 +181,12 @@ namespace Prototype.Videos
                     }   
                 }
 
+                nextVideo.frame = (long) nextVideo.frameCount - 1;
+
+                if (videoData != null)
+                {
+                    videoData.OnVideoEnd?.Invoke();
+                }
                 if (videoData != null && videoData.IsWaitingForInputAtEnd)
                 {
                     while (!CheckInput())
@@ -125,6 +194,24 @@ namespace Prototype.Videos
                         yield return null;
                     }
                 }
+
+                if (videoData != null && !videoData.Player.isLooping)
+                {
+                    ButtonSkipper skipper = default;
+                    if (videoData.ButtonToSkip)
+                    {
+                        skipper = new ButtonSkipper(videoData.ButtonToSkip);
+                    }
+                
+                    if (skipper != null)
+                    {
+                        while (!skipper.IsClicked)
+                        {
+                            yield return null;
+                        }
+                    }
+                }
+                
 
                 yield return new WaitForEndOfFrame();
                 nextVideo.gameObject.SetActive(false);
@@ -136,11 +223,7 @@ namespace Prototype.Videos
 
         private bool CheckInput()
         {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                return true;
-            }
-            return false;
+            return GameHelper.IsAnyButtonPressed();
         }
     }
     

@@ -26,5 +26,5 @@ MonoBehaviour:
     _value: 6.5
   m_boolValues:
   - _nameKey: IS_CHEAT_MODE
-    _value: 0
+    _value: 1
   m_colorValues: []

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Prototype
@@ -23,6 +24,11 @@ namespace Prototype
                 list[k] = list[n];  
                 list[n] = value;  
             }  
+        }
+        
+        public static bool IsAnyButtonPressed()
+        {
+            return Input.anyKeyDown;
         }
     }
 }
