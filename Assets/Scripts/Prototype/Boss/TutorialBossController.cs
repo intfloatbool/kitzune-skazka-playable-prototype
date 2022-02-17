@@ -38,6 +38,9 @@ namespace Prototype.Boss
             _closedEye.SetActive(false);
             _openedEye.SetActive(true);
             _hands.SetActive(true);
+            
+            yield return new WaitForSeconds(2f);
+            
             var handsPos = _hands.transform.position;
             handsPos.y = -1.5f;
             _hands.transform.DOMove(handsPos, 1.4f);
