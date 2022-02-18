@@ -2,6 +2,7 @@ using System.Collections;
 using BezierSolution;
 using DG.Tweening;
 using Prototype.GameUI;
+using Prototype.Managers;
 using Prototype.Player;
 using UnityEngine;
 
@@ -16,6 +17,8 @@ namespace Prototype.Boss
         [SerializeField] private GameObject _soul;
         private IEnumerator Start()
         {
+            var audioSource = gameObject.AddComponent<AudioSource>();
+            SoundManager.PlayMusic("music_tutorial_boss_stage1_loop", gameObject, true);
             
             var boss = FindObjectOfType<TutorialBoss>();
             var tutorialWindow = FindObjectOfType<TutorialWindow>();
@@ -62,6 +65,8 @@ namespace Prototype.Boss
                 boss.Animator.enabled = true;
                 playerController.SetActive(true);
                 soulMover.SetActive(true);
+                
+                SoundManager.PlayMusic("music_tutorial_boss_stage2_loop", gameObject, true);
             };
         }
     }
