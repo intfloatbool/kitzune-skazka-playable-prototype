@@ -1982,7 +1982,7 @@ MonoBehaviour:
   _onDone:
     m_PersistentCalls:
       m_Calls: []
-  _startFromIndex: 0
+  _startFromIndex: 27
   _forcePlayBackSpeed: 1
   _playspeedByCheats: 3
 --- !u!1 &929125584

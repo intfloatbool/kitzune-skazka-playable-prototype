@@ -20,4 +20,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/NovelScenes/1_NovelScene.unity
     guid: 84ef6024fa0d6f948b893653a276eb44
+  - enabled: 1
+    path: Assets/Scenes/NovelScenes/0_NovelScene_ROCK.unity
+    guid: 163d0f605cdf8814799e230a7451662f
+  - enabled: 1
+    path: Assets/Scenes/NovelScenes/0_NovelScene_FISH.unity
+    guid: 5a95dc863872f384883d752a536bed7e
+  - enabled: 1
+    path: Assets/Scenes/NovelScenes/0_NovelScene_FIRE.unity
+    guid: 800d9686f4ba4db45b63734c3f312ef7
+  - enabled: 1
+    path: Assets/Scenes/NovelScenes/0_NovelScene_StageB.unity
+    guid: 836b90be47b92584dac87ae59167259e
   m_configObjects: {}
