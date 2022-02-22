@@ -194,12 +194,14 @@ namespace Prototype.Boss
             var newKillerTriggerPos = Vector3.up * 2.2f;
             _killTriggerTransform.DOLocalMove(newKillerTriggerPos, _activationDelay);
             
+            yield return new WaitForSeconds(_activationDelay / 2f);
+            
             if (!string.IsNullOrEmpty(AttackSoundName))
             {
                 SoundManager.PlaySound(AttackSoundName, gameObject);
             }
             
-            yield return new WaitForSeconds(_activationDelay);
+            yield return new WaitForSeconds(_activationDelay / 2f);
 
             CurrentState = TentacleState.ATTACK;
             
