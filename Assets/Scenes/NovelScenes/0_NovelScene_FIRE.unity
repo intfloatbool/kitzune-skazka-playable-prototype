@@ -520,8 +520,8 @@ MonoBehaviour:
   _isPlayOnStart: 1
   _videoDataCollection:
   - Player: {fileID: 1303922071}
-    IsWaitingForInputAtEnd: 0
-    IsWaitingForInputAllTime: 1
+    IsWaitingForInputAtEnd: 1
+    IsWaitingForInputAllTime: 0
     ButtonToSkip: {fileID: 0}
     OnVideoEnd:
       m_PersistentCalls:
